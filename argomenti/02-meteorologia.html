@@ -84,7 +84,7 @@
         <text x="20" y="220" fill="var(--magenta)">9–12</text>
         <text x="70" y="220" fill="var(--magenta)">&gt;41</text>
         <rect x="140" y="208" width="200" height="14" fill="var(--magenta)" stroke="var(--magenta)" stroke-width="1"/>
-        <text x="160" y="220" fill="var(--magenta)">Burrasca forte → Uragano — non navigare</text>
+        <text x="160" y="220" fill="white">Burrasca forte → Uragano — non navigare</text>
       </g>
       <text class="ital" x="20" y="260">Per un diportista: con forza 5 (17–21 nodi) si inizia ad avere difficoltà.</text>
       <text class="ital" x="20" y="280">Forza 6–7: rientrare in porto se possibile. Forza 8+: emergenza.</text>
@@ -129,32 +129,33 @@
     <div class="tag">Maree</div>
     <h2>Maree e Correnti di Marea</h2>
     <p>Le maree sono oscillazioni periodiche del livello del mare causate dall'attrazione gravitazionale di Luna e Sole. In Mediterraneo l'escursione è modesta (20–40 cm); in Atlantico può superare i 10 m.</p>
-    <svg viewBox="0 0 680 200" role="img" aria-label="Ciclo di marea semidiurno">
+    <svg viewBox="0 0 680 260" role="img" aria-label="Ciclo di marea semidiurno">
       <defs>
         <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="var(--deep)"/>
         </marker>
       </defs>
       <!-- baseline -->
-      <line x1="40" y1="130" x2="660" y2="130" stroke="var(--rule)" stroke-width="1.5"/>
+      <line x1="40" y1="130" x2="650" y2="130" stroke="var(--rule)" stroke-width="1.5"/>
       <!-- onda marea -->
       <path d="M40,130 Q120,40 200,130 Q280,220 360,130 Q440,40 520,130 Q600,220 660,130"
             fill="rgba(111,154,168,.18)" stroke="var(--sound)" stroke-width="2.5"/>
-      <!-- labels -->
-      <text class="lbl" x="200" y="30" text-anchor="middle" fill="var(--sound)">Alta marea</text>
-      <text class="lbl" x="360" y="240" text-anchor="middle" fill="var(--sound)">Bassa marea</text>
-      <text class="lbl" x="520" y="30" text-anchor="middle" fill="var(--sound)">Alta marea</text>
+      <!-- labels alta marea -->
+      <text class="lbl" x="200" y="28" text-anchor="middle" fill="var(--sound)">Alta marea</text>
+      <text class="lbl" x="520" y="28" text-anchor="middle" fill="var(--sound)">Alta marea</text>
+      <!-- label bassa marea (dentro viewBox) -->
+      <text class="lbl" x="360" y="248" text-anchor="middle" fill="var(--sound)">Bassa marea</text>
       <!-- livello medio -->
-      <line x1="40" y1="130" x2="660" y2="130" stroke="var(--deep)" stroke-width="1" stroke-dasharray="5 5"/>
-      <text class="ital" x="670" y="134">LMM</text>
+      <line x1="40" y1="130" x2="650" y2="130" stroke="var(--deep)" stroke-width="1" stroke-dasharray="5 5"/>
+      <text class="lbl sm" x="658" y="128" text-anchor="end">LMM</text>
       <!-- escursione -->
       <line x1="200" y1="42" x2="200" y2="130" stroke="var(--magenta)" stroke-width="1.5" stroke-dasharray="4 3"/>
       <text class="lbl sm" x="208" y="86" fill="var(--magenta)">escursione</text>
       <!-- durata -->
-      <path d="M40,160 L200,160" stroke="var(--deep)" stroke-width="1.2" fill="none" marker-end="url(#ar2)" marker-start="url(#ar2)"/>
-      <text class="ital" x="120" y="178" text-anchor="middle">~6h 12'</text>
-      <path d="M200,160 L360,160" stroke="var(--deep)" stroke-width="1.2" fill="none" marker-end="url(#ar2)" marker-start="url(#ar2)"/>
-      <text class="ital" x="280" y="178" text-anchor="middle">~6h 12'</text>
+      <path d="M42,172 L198,172" stroke="var(--deep)" stroke-width="1.2" fill="none" marker-end="url(#ar2)" marker-start="url(#ar2)"/>
+      <text class="ital" x="120" y="190" text-anchor="middle">~6h 12'</text>
+      <path d="M202,172 L358,172" stroke="var(--deep)" stroke-width="1.2" fill="none" marker-end="url(#ar2)" marker-start="url(#ar2)"/>
+      <text class="ital" x="280" y="190" text-anchor="middle">~6h 12'</text>
     </svg>
     <dl>
       <div class="key"><dt>Sizigie</dt><dd>Luna piena/nuova: Luna, Sole e Terra allineati — maree di massima escursione</dd></div>

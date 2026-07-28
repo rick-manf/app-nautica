@@ -28,6 +28,11 @@
     <p>In Europa (Regione A del sistema IALA) le <strong>boe laterali</strong> delimitano i canali navigabili. La convenzione è riferita al senso convenzionale di entrata in porto (generalmente verso il porto o verso Est/Nord).</p>
 
     <svg viewBox="0 0 680 260" role="img" aria-label="Boe laterali IALA regione A">
+      <defs>
+        <marker id="ar-dir" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--deep)"/>
+        </marker>
+      </defs>
       <!-- canale -->
       <rect x="40" y="90" width="600" height="80" fill="rgba(111,154,168,.15)" stroke="none"/>
       <text class="ital" x="340" y="136" text-anchor="middle">CANALE NAVIGABILE</text>
@@ -60,7 +65,7 @@
 
       <!-- freccia direzione -->
       <path d="M40,252 L640,252" stroke="var(--deep)" stroke-width="1.5" fill="none"
-            marker-end="url(#arc)"/>
+            marker-end="url(#ar-dir)"/>
       <text class="lbl sm" x="340" y="248" text-anchor="middle">Senso convenzionale di entrata →</text>
     </svg>
     <p class="cap">Mnemonica: "<strong>rosso a sinistra entrando</strong>" (in Regione A). Uscendo dal porto, rosso a dritta e verde a sinistra.</p>
@@ -110,11 +115,16 @@
       <text class="ital" x="400" y="238" text-anchor="middle">Passa a Est</text>
       <text class="lbl sm" x="400" y="254" text-anchor="middle">VQ(3) o Q(3)</text>
 
-      <!-- BOA OVEST: giallo-nero-giallo, coni punte unite -->
+      <!-- BOA OVEST: giallo-nero-giallo, coni punte a punte (hourglass ><) -->
       <g transform="translate(100,250)">
         <ellipse cx="0" cy="0" rx="20" ry="28" fill="#FFCC00" stroke="var(--deep)" stroke-width="2"/>
-        <rect x="-20" y="-6" width="40" height="12" fill="var(--deep)"/>
-        <text x="0" y="6" text-anchor="middle" fill="var(--deep)" font-family="Oswald,sans-serif" font-size="11" font-weight="600">O</text>
+        <!-- banda nera centrale -->
+        <rect x="-20" y="-5" width="40" height="10" fill="var(--deep)"/>
+        <!-- cono superiore punta in GIÙ (↓) -->
+        <path d="M-10,-28 L10,-28 L0,-8 Z" fill="var(--deep)"/>
+        <!-- cono inferiore punta in SU (↑) -->
+        <path d="M-10,28 L10,28 L0,8 Z" fill="var(--deep)"/>
+        <text x="0" y="4" text-anchor="middle" fill="#FFCC00" font-family="Oswald,sans-serif" font-size="10" font-weight="600">O</text>
       </g>
       <text class="lbl" x="100" y="222" text-anchor="middle">BOA OVEST</text>
       <text class="ital" x="100" y="238" text-anchor="middle">Passa a Ovest</text>
