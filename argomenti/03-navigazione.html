@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navigazione — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 03 · Navigazione</div>
+  <h1>Carte e<br><b>Strumenti</b></h1>
+  <p class="sub">Orientarsi in mare: come si usa la bussola, come si legge una carta nautica e come si calcola una rotta.</p>
+
+  <!-- 1. BUSSOLA -->
+  <section>
+    <div class="tag">Orientamento</div>
+    <h2>La Bussola e i Tre Nord</h2>
+    <p>In navigazione esistono <strong>tre diversi "Nord"</strong> che non coincidono e vanno distinti con precisione:</p>
+
+    <svg viewBox="0 0 680 300" role="img" aria-label="I tre nord: geografico, magnetico, bussola">
+      <defs>
+        <marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--deep)"/>
+        </marker>
+        <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--magenta)"/>
+        </marker>
+        <marker id="arb2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--sound)"/>
+        </marker>
+      </defs>
+
+      <!-- Nord geografico -->
+      <path d="M200,260 L200,60" stroke="var(--deep)" stroke-width="2.5" fill="none" marker-end="url(#arc)"/>
+      <text class="lbl" x="188" y="52" text-anchor="end">Nord vero (Nv)</text>
+      <text class="ital" x="188" y="70" text-anchor="end">Polo geografico</text>
+
+      <!-- Nord magnetico (deviato di ~3° W in Italia) -->
+      <path d="M200,260 L188,58" stroke="var(--magenta)" stroke-width="2" fill="none" stroke-dasharray="7 4" marker-end="url(#arm)"/>
+      <text class="lbl" x="140" y="48" text-anchor="middle" fill="var(--magenta)">Nord magnetico (Nm)</text>
+      <text class="ital" x="130" y="66" text-anchor="middle" fill="var(--magenta)">var. magnetica ≈3°W</text>
+
+      <!-- Nord bussola (con deviazione a bordo) -->
+      <path d="M200,260 L216,58" stroke="var(--sound)" stroke-width="2" fill="none" stroke-dasharray="5 3" marker-end="url(#arb2)"/>
+      <text class="lbl" x="260" y="48" fill="var(--sound)">Nord bussola (Nb)</text>
+      <text class="ital" x="260" y="66" fill="var(--sound)">dev. bussola a bordo</text>
+
+      <!-- angoli -->
+      <path d="M200,200 Q192,195 190,185" fill="none" stroke="var(--magenta)" stroke-width="1.5"/>
+      <text class="ital" x="155" y="195" fill="var(--magenta)">variaz.</text>
+      <path d="M200,200 Q208,195 212,185" fill="none" stroke="var(--sound)" stroke-width="1.5"/>
+      <text class="ital" x="210" y="195" fill="var(--sound)">deviat.</text>
+
+      <!-- formule -->
+      <rect x="380" y="60" width="280" height="180" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="520" y="90" text-anchor="middle">Formule di correzione</text>
+      <text class="ital" x="400" y="120">Rv = Rb + Dev + Var</text>
+      <text class="lbl sm" x="400" y="140">Rv = rotta vera</text>
+      <text class="lbl sm" x="400" y="158">Rb = rotta bussola (letta a bordo)</text>
+      <text class="lbl sm" x="400" y="176">Dev = deviazione della bussola</text>
+      <text class="lbl sm" x="400" y="194">Var = variazione magnetica (dalla carta)</text>
+      <text class="ital" x="400" y="222">E = positivo (+) · W = negativo (−)</text>
+    </svg>
+    <p class="cap">La <strong>variazione magnetica</strong> è indicata in rosa sulla carta nautica e cambia lentamente ogni anno. La <strong>deviazione</strong> dipende dai metalli a bordo e si compensa o si tabella per ogni rotta.</p>
+  </section>
+
+  <!-- 2. CARTE NAUTICHE -->
+  <section>
+    <div class="tag">Cartografia</div>
+    <h2>La Carta Nautica</h2>
+    <p>Le carte nautiche italiane sono prodotte dall'<strong>Istituto Idrografico della Marina (IIM)</strong>. Usano la proiezione di Mercatore, che conserva le direzioni ma distorce le distanze alle alte latitudini.</p>
+    <div class="duo">
+      <div>
+        <p><strong>Scale</strong>: piccola scala (1:500 000 o meno) per la pianificazione; grande scala (1:25 000 o più) per l'atterraggio e la navigazione costiera.</p>
+        <p><strong>Profondità</strong>: indicate in metri (o in piedi nelle carte anglosassoni) rispetto al livello di bassa marea media (LMM). Le isobate collegano punti di uguale profondità.</p>
+      </div>
+      <div>
+        <p><strong>Simboli chiave</strong>: punto cardinale con numero = secca (profondità); ancora = ancoraggio; cerchio puntinato = segnalamento; faro = torre con settori luminosi.</p>
+        <p><strong>Aggiornamento</strong>: le carte devono essere corrette con i <em>Notiziari agli Naviganti</em> dell'IIM. Navigare con carte obsolete è pericoloso e sanzionabile.</p>
+      </div>
+    </div>
+    <dl>
+      <div class="key"><dt>Latitudine</dt><dd>gradi Nord/Sud dall'equatore; 1' di latitudine = 1 miglio nautico = 1852 m</dd></div>
+      <div class="key"><dt>Longitudine</dt><dd>gradi Est/Ovest dal meridiano di Greenwich; varia con la latitudine</dd></div>
+      <div class="key"><dt>Miglio nautico</dt><dd>1852 m; la velocità si misura in nodi (1 nodo = 1 miglio/ora)</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3. CALCOLO DI ROTTA -->
+  <section>
+    <div class="tag">Navigazione stimata</div>
+    <h2>Calcolo di Rotta e Punto Stimato</h2>
+    <p>La <strong>navigazione stimata</strong> calcola la posizione usando rotta, velocità e tempo, correggendo per corrente e deriva del vento:</p>
+
+    <svg viewBox="0 0 680 260" role="img" aria-label="Schema navigazione stimata con corrente">
+      <defs>
+        <marker id="arn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--deep)"/>
+        </marker>
+        <marker id="arc2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--sound)"/>
+        </marker>
+        <marker id="arm2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--magenta)"/>
+        </marker>
+      </defs>
+      <!-- punto di partenza -->
+      <circle cx="100" cy="180" r="6" fill="var(--deep)"/>
+      <text class="lbl sm" x="80" y="200">Partenza</text>
+      <!-- rotta bussola -->
+      <path d="M100,180 L380,80" stroke="var(--deep)" stroke-width="2.5" fill="none" marker-end="url(#arn)"/>
+      <text class="lbl" x="220" y="108">Rotta bussola</text>
+      <text class="ital" x="220" y="126">(senza corrente)</text>
+      <!-- corrente -->
+      <path d="M380,80 L500,160" stroke="var(--sound)" stroke-width="2" fill="none" stroke-dasharray="8 4" marker-end="url(#arc2)"/>
+      <text class="lbl sm" x="450" y="108" fill="var(--sound)">Corrente</text>
+      <!-- rotta effettiva -->
+      <path d="M100,180 L500,160" stroke="var(--magenta)" stroke-width="2.5" fill="none" marker-end="url(#arm2)"/>
+      <text class="lbl" x="300" y="196" fill="var(--magenta)">Rotta fondo (effettiva)</text>
+      <!-- punti -->
+      <circle cx="380" cy="80" r="5" fill="var(--deep)"/>
+      <text class="lbl sm" x="384" y="72">Punto stimato</text>
+      <circle cx="500" cy="160" r="5" fill="var(--magenta)"/>
+      <text class="lbl sm" x="506" y="154" fill="var(--magenta)">Punto reale</text>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>S = V × T</dt><dd>Spazio percorso = Velocità (nodi) × Tempo (ore)</dd></div>
+      <div class="key"><dt>Angolo di deriva</dt><dd>angolo fra rotta bussola e rotta fondo, causato dalla corrente</dd></div>
+      <div class="key"><dt>GPS / chartplotter</dt><dd>fornisce posizione in WGS84; preferire sempre la conferma visiva con la carta</dd></div>
+      <div class="key"><dt>Punto nave</dt><dd>posizione certa ottenuta per rilevamento visivo di tre punti noti a terra (crocifisso)</dd></div>
+    </dl>
+  </section>
+
+  <!-- 4. STRUMENTI -->
+  <section>
+    <div class="tag">Dotazione di bordo</div>
+    <h2>Strumenti di Navigazione</h2>
+    <dl>
+      <div class="key"><dt>Bussola magnetica</dt><dd>strumento primario; deve essere installata lontano da masse metalliche e apparati elettronici</dd></div>
+      <div class="key"><dt>GPS / VHF-DSC</dt><dd>il radio VHF con DSC trasmette automaticamente la posizione GPS in caso di emergenza (tasto DISTRESS)</dd></div>
+      <div class="key"><dt>Ecoscandaglio</dt><dd>misura la profondità con onde sonore; fondamentale per l'atterraggio</dd></div>
+      <div class="key"><dt>Loch</dt><dd>misura la velocità e la distanza percorsa sull'acqua (velocità "sull'acqua", non "sul fondo")</dd></div>
+      <div class="key"><dt>AIS</dt><dd>Automatic Identification System: trasmette e riceve posizione, rotta e velocità delle navi vicine</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=navigazione">
+    <span>Mettiti alla prova — Quiz Navigazione</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>

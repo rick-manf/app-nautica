@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sicurezza in Mare — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 05 · Sicurezza</div>
+  <h1>Sicurezza<br><b>in Mare</b></h1>
+  <p class="sub">Dotazioni obbligatorie, segnali di soccorso, antincendio e procedure di emergenza: prepararsi prima di partire.</p>
+
+  <!-- 1. DPI -->
+  <section>
+    <div class="tag">Dispositivi di salvataggio</div>
+    <h2>Giubbotti e DPI</h2>
+    <p>I <strong>Dispositivi di Protezione Individuale (DPI)</strong> devono essere presenti a bordo in numero pari ai posti omologati. I tipi principali si distinguono per la <strong>forza di galleggiamento</strong> espressa in Newton (N):</p>
+
+    <svg viewBox="0 0 680 220" role="img" aria-label="Tipi di giubbotti di salvataggio">
+      <!-- tipo 150N -->
+      <g transform="translate(80,110)">
+        <ellipse cx="0" cy="-30" rx="36" ry="44" fill="var(--magenta)" stroke="var(--deep)" stroke-width="2" opacity=".85"/>
+        <rect x="-8" y="14" width="16" height="24" fill="var(--magenta)" stroke="var(--deep)" stroke-width="1.5"/>
+        <circle cx="0" cy="-70" r="14" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+        <text x="0" y="-66" text-anchor="middle" font-family="Oswald,sans-serif" font-size="10" fill="var(--deep)">testa</text>
+      </g>
+      <text class="lbl" x="80" y="170" text-anchor="middle" fill="var(--magenta)">150 N</text>
+      <text class="ital" x="80" y="188" text-anchor="middle">Gonfiabile</text>
+      <text class="ital" x="80" y="204" text-anchor="middle">gira incosciente a faccia su</text>
+
+      <!-- tipo 100N -->
+      <g transform="translate(280,110)">
+        <ellipse cx="0" cy="-20" rx="32" ry="36" fill="#E67E22" stroke="var(--deep)" stroke-width="2" opacity=".85"/>
+        <rect x="-7" y="16" width="14" height="20" fill="#E67E22" stroke="var(--deep)" stroke-width="1.5"/>
+        <circle cx="0" cy="-60" r="14" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+      </g>
+      <text class="lbl" x="280" y="170" text-anchor="middle" fill="#E67E22">100 N</text>
+      <text class="ital" x="280" y="188" text-anchor="middle">Aiuto al galleggiamento</text>
+      <text class="ital" x="280" y="204" text-anchor="middle">acque protette, persona cosciente</text>
+
+      <!-- tipo 50N -->
+      <g transform="translate(480,110)">
+        <rect x="-28" y="-44" width="56" height="60" rx="8" fill="var(--sound)" stroke="var(--deep)" stroke-width="2" opacity=".85"/>
+        <rect x="-7" y="16" width="14" height="18" fill="var(--sound)" stroke="var(--deep)" stroke-width="1.5"/>
+        <circle cx="0" cy="-60" r="14" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+      </g>
+      <text class="lbl" x="480" y="170" text-anchor="middle" fill="var(--sound)">50 N</text>
+      <text class="ital" x="480" y="188" text-anchor="middle">Supporto / salvagente</text>
+      <text class="ital" x="480" y="204" text-anchor="middle">nuotatore, acque calme</text>
+    </svg>
+    <p class="cap">Regola pratica: <strong>150 N è l'unico che rovescia un incosciente a faccia su</strong>. Per navigazione offshore o maltempo, usare sempre 150 N gonfiabile o fisso.</p>
+  </section>
+
+  <!-- 2. SEGNALI DI SOCCORSO -->
+  <section>
+    <div class="tag">Emergenza</div>
+    <h2>Segnali di Soccorso</h2>
+    <p>La gerarchia dei segnali radio VHF prevede tre livelli di urgenza:</p>
+    <dl>
+      <div class="key"><dt>MAYDAY</dt><dd>pericolo imminente di vita — "Mayday Mayday Mayday, qui [nome barca], posizione [lat/lon], [natura emergenza], [n° persone a bordo], [assistenza richiesta]"</dd></div>
+      <div class="key"><dt>PAN PAN</dt><dd>urgenza non immediata — persona ferita, avaria grave, deriva. Stessa formula senza il triplo Mayday</dd></div>
+      <div class="key"><dt>SECURITÉ</dt><dd>avviso di sicurezza — pericolo alla navigazione (rete galleggiante, relitto, ecc.)</dd></div>
+      <div class="key"><dt>Canale 16 VHF</dt><dd>canale di emergenza e chiamata internazionale; va monitorato sempre in navigazione</dd></div>
+    </dl>
+    <h2 style="margin-top:20px">Segnali Visivi e Pirotecnici</h2>
+    <dl>
+      <div class="key"><dt>Razzo paracadute</dt><dd>segnale luminoso rosso a grande altezza, visibile a oltre 10 nm; 2 pezzi obbligatori offshore</dd></div>
+      <div class="key"><dt>Fuoco a mano</dt><dd>rosso, dura ~1 minuto; usare di notte o con bassa visibilità quando si è visti</dd></div>
+      <div class="key"><dt>Fumogeno arancione</dt><dd>segnale diurno per indicare posizione a elicotteri e aerei</dd></div>
+      <div class="key"><dt>EPIRB</dt><dd>Emergency Position Indicating Radio Beacon: trasmette su 406 MHz al satellite COSPAS-SARSAT</dd></div>
+      <div class="key"><dt>Specchio segnalatore</dt><dd>riflessione solare visibile fino a 10 nm; efficace quando non si ha altro</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3. ANTINCENDIO -->
+  <section>
+    <div class="tag">Antincendio</div>
+    <h2>Classi di Fuoco e Estintori</h2>
+    <div class="duo">
+      <div>
+        <dl>
+          <div class="key"><dt>Classe A</dt><dd>solidi combustibili (legno, tessuti) — acqua o polvere ABC</dd></div>
+          <div class="key"><dt>Classe B</dt><dd>liquidi infiammabili (carburante, olio) — schiuma o CO₂</dd></div>
+          <div class="key"><dt>Classe C</dt><dd>gas (GPL, metano) — polvere; MAI acqua</dd></div>
+          <div class="key"><dt>Classe F</dt><dd>oli da cucina — estintore specifico classe F</dd></div>
+        </dl>
+      </div>
+      <div>
+        <p>A bordo di una barca a motore l'incendio più probabile è in <strong>sala macchine</strong> (carburante). Gli estintori devono essere a polvere ABC o CO₂ e accessibili immediatamente.</p>
+        <p>In caso di incendio: <strong>vento a favore, spegnere il motore, non aprire il cofano se c'è fuoco dentro</strong> (entra ossigeno), allontanare il carburante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DOTAZIONI OBBLIGATORIE -->
+  <section>
+    <div class="tag">Equipaggiamento</div>
+    <h2>Dotazioni Minime di Sicurezza</h2>
+    <p>Le dotazioni variano per zona di navigazione. Quelle obbligatorie per la navigazione oltre 6 miglia includono:</p>
+    <dl>
+      <div class="key"><dt>DPI</dt><dd>1 giubbotto 150 N per persona, taglia corretta</dd></div>
+      <div class="key"><dt>Salvagente anulare</dt><dd>con sagola da almeno 30 m, oppure sagola galleggiante da lancio</dd></div>
+      <div class="key"><dt>Zattera di salvataggio</dt><dd>obbligatoria oltre 12 miglia, omologata SOLAS, revisionata ogni anno o 3 anni</dd></div>
+      <div class="key"><dt>Estintori</dt><dd>almeno 1 portatile adeguato al tipo di imbarcazione</dd></div>
+      <div class="key"><dt>Segnali pirotecnici</dt><dd>set completo con data di scadenza valida (max 3–4 anni)</dd></div>
+      <div class="key"><dt>Radio VHF</dt><dd>fisso con DSC obbligatorio oltre 12 miglia; portatile consigliato sempre</dd></div>
+      <div class="key"><dt>Kit pronto soccorso</dt><dd>secondo normativa ministeriale in base alla zona di navigazione</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=sicurezza">
+    <span>Mettiti alla prova — Quiz Sicurezza</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>

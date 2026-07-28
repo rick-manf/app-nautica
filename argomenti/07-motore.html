@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motore e Meccanica — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 07 · Motore</div>
+  <h1>Motore e<br><b>Meccanica</b></h1>
+  <p class="sub">Tipi di motori marini, come funziona l'elica, i guasti più comuni e la manutenzione di base: capire cosa c'è sotto il cofano.</p>
+
+  <!-- 1. TIPI DI MOTORI -->
+  <section>
+    <div class="tag">Propulsione</div>
+    <h2>Tipi di Motori Marini</h2>
+
+    <svg viewBox="0 0 680 240" role="img" aria-label="Schema tipi motori marini">
+      <!-- ENTROBORDO -->
+      <rect x="20" y="20" width="190" height="200" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="115" y="50" text-anchor="middle">Entrobordo</text>
+      <!-- scafo semplificato -->
+      <path d="M40,160 Q115,170 190,160 L180,200 L50,200 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.5"/>
+      <!-- motore -->
+      <rect x="70" y="100" width="90" height="58" rx="3" fill="var(--sound)" stroke="var(--deep)" stroke-width="1.5" opacity=".7"/>
+      <text x="115" y="133" text-anchor="middle" font-family="Oswald,sans-serif" font-size="11" fill="var(--deep)">MOTORE</text>
+      <!-- albero e elica -->
+      <path d="M160,140 L210,168" stroke="var(--deep)" stroke-width="2.5"/>
+      <ellipse cx="214" cy="170" rx="10" ry="5" fill="var(--deep)" transform="rotate(-20,214,170)"/>
+      <text class="ital" x="115" y="225" text-anchor="middle">Diesel · potenza elevata</text>
+
+      <!-- FUORIBORDO -->
+      <rect x="240" y="20" width="190" height="200" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="335" y="50" text-anchor="middle">Fuoribordo</text>
+      <path d="M260,160 Q335,168 410,160 L400,200 L270,200 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.5"/>
+      <!-- motore esterno -->
+      <rect x="390" y="80" width="30" height="90" rx="3" fill="var(--sound)" stroke="var(--deep)" stroke-width="1.5" opacity=".7"/>
+      <path d="M405,170 L405,195" stroke="var(--deep)" stroke-width="2.5"/>
+      <ellipse cx="405" cy="198" rx="12" ry="5" fill="var(--deep)"/>
+      <text class="ital" x="335" y="225" text-anchor="middle">Benzina o elettrico</text>
+
+      <!-- STERNDRIVE (entrofuoribordo) -->
+      <rect x="460" y="20" width="200" height="200" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="560" y="50" text-anchor="middle">Sterndrive</text>
+      <path d="M480,160 Q560,170 640,160 L630,200 L490,200 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.5"/>
+      <rect x="500" y="100" width="80" height="58" rx="3" fill="var(--sound)" stroke="var(--deep)" stroke-width="1.5" opacity=".7"/>
+      <text x="540" y="133" text-anchor="middle" font-family="Oswald,sans-serif" font-size="10" fill="var(--deep)">MOTORE</text>
+      <path d="M580,140 L630,165" stroke="var(--deep)" stroke-width="2.5"/>
+      <ellipse cx="634" cy="168" rx="10" ry="5" fill="var(--deep)" transform="rotate(-15,634,168)"/>
+      <text class="ital" x="560" y="225" text-anchor="middle">Motore interno · piede esterno</text>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>Entrobordo</dt><dd>motore (quasi sempre diesel) installato dentro lo scafo; albero esce sotto la carena; più potente e duraturo</dd></div>
+      <div class="key"><dt>Fuoribordo</dt><dd>motore (benzina o elettrico) agganciato allo specchio di poppa; rimovibile; ideale per piccoli natanti</dd></div>
+      <div class="key"><dt>Sterndrive (I/O)</dt><dd>motore dentro, piede (trasmissione + elica) fuori; compromesso tra i due; orientabile</dd></div>
+      <div class="key"><dt>2 tempi vs 4 tempi</dt><dd>il 2T ha un ciclo ogni giro (più potente ma consuma di più); il 4T ogni due giri (più efficiente, meno emissioni)</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2. ELICA -->
+  <section>
+    <div class="tag">Propulsore</div>
+    <h2>L'Elica e la Cavitazione</h2>
+    <p>L'<strong>elica</strong> converte la coppia motrice in spinta. I parametri chiave sono:</p>
+    <dl>
+      <div class="key"><dt>Passo</dt><dd>distanza teorica percorsa in un giro completo (in pollici); passo alto = più velocità, meno accelerazione</dd></div>
+      <div class="key"><dt>Diametro</dt><dd>dimensione dell'elica; diametro grande = più spinta a bassa velocità</dd></div>
+      <div class="key"><dt>Numero di pale</dt><dd>3 pale = standard; 4 pale = meno vibrazioni, più efficiente a velocità di crociera</dd></div>
+      <div class="key"><dt>Cavitazione</dt><dd>formazione di bolle di vapore sulle pale per bassa pressione; erode le pale e riduce la spinta; causa un "fuga" del motore (sovragiri a vuoto)</dd></div>
+      <div class="key"><dt>Ventilazione</dt><dd>l'elica aspira aria dalla superficie (diverso dalla cavitazione); accade con elica troppo alta o virata brusca</dd></div>
+    </dl>
+    <p class="cap">L'elica destra gira in senso orario (vista da poppa) e in marcia avanti produce un <strong>effetto evolutivo</strong> che fa scendere la poppa a sinistra — utile sapendolo, pericoloso ignorandolo.</p>
+  </section>
+
+  <!-- 3. SISTEMI A BORDO -->
+  <section>
+    <div class="tag">Sistemi ausiliari</div>
+    <h2>Raffreddamento, Carburante e Trasmissione</h2>
+    <div class="duo">
+      <div>
+        <p><strong>Raffreddamento</strong>: i motori marini sono raffreddati ad acqua (dolce in circuito chiuso + acqua di mare per lo scambiatore). La pompa dell'acqua di mare ha una girante in gomma che va sostituita ogni stagione.</p>
+        <p><strong>Carburanti</strong>: diesel per entrobordo (più sicuro, non forma vapori esplosivi); benzina per fuoribordo. MAI usare benzina in serbatoi fissi senza ventilazione adeguata.</p>
+      </div>
+      <div>
+        <p><strong>Trasmissione</strong>: il riduttore (cambio marino) permette marcia avanti, punto morto e retromarcia invertendo il senso dell'elica o la presa di forza.</p>
+        <p><strong>Invertitore</strong>: nei fuoribordo la retromarcia si ottiene ruotando fisicamente l'elica; nei piedi sterndrive idem. Il punto morto è fondamentale nelle manovre lente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GUASTI E MANUTENZIONE -->
+  <section>
+    <div class="tag">Avarie e manutenzione</div>
+    <h2>Guasti Comuni e Controlli</h2>
+    <dl>
+      <div class="key"><dt>Motore non parte</dt><dd>verificare: batteria carica? Gasolio nel serbatoio? Filtro carburante intasato? Stop di emergenza inserito?</dd></div>
+      <div class="key"><dt>Allarme temperatura</dt><dd>girante pompa rotta o intasata → spegnere subito il motore; controllare presa a mare aperta</dd></div>
+      <div class="key"><dt>Allarme olio</dt><dd>livello basso o pressione insufficiente → fermare immediatamente; controllare livello e perdite</dd></div>
+      <div class="key"><dt>Girante della pompa</dt><dd>sostituire ogni anno o 200 ore; portarne sempre una di ricambio a bordo</dd></div>
+      <div class="key"><dt>Filtro gasolio</dt><dd>sostituire ogni stagione; l'acqua nel gasolio è la causa n°1 di avarie al diesel</dd></div>
+      <div class="key"><dt>Controlli pre-partenza</dt><dd>livello olio, gasolio, acqua dolce (se a circuito chiuso), cinghia alternatore, presa a mare aperta, anodo zinco</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=motore">
+    <span>Mettiti alla prova — Quiz Motore</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>

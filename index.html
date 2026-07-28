@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patente Nautica — Portale Didattico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sea:#DEEAEF;--paper:#FBF8F1;--land:#EADFC4;
+    --deep:#0E2A38;--sound:#6F9AA8;--magenta:#B8306E;
+    --rule:rgba(14,42,56,.16);--ok:#1a7a4a;--mid:#c07000;--err:#c0392b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--sea);
+    background-image:
+      repeating-linear-gradient(to right,rgba(111,154,168,.18) 0 1px,transparent 1px 64px),
+      repeating-linear-gradient(to bottom,rgba(111,154,168,.18) 0 1px,transparent 1px 64px);
+    color:var(--deep);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.6;min-height:100vh;
+  }
+
+  /* ── NAV ── */
+  nav{
+    background:var(--deep);display:flex;align-items:center;justify-content:space-between;
+    padding:0 28px;height:54px;position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(14,42,56,.28);
+  }
+  .nav-logo{
+    font-family:"Oswald",sans-serif;font-weight:600;font-size:18px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sea);text-decoration:none;display:flex;align-items:center;gap:10px;
+  }
+  .nav-logo svg{opacity:.85}
+  .nav-tag{font-family:"Oswald",sans-serif;font-weight:300;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--sound)}
+
+  /* ── HERO ── */
+  .hero{max-width:900px;margin:0 auto;padding:60px 24px 44px}
+  .eyebrow{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--magenta);margin-bottom:14px}
+  h1{font-family:"Oswald",sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,7vw,58px);line-height:1.04;margin:0 0 .28em}
+  h1 b{font-weight:600}
+  .hero-sub{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:clamp(17px,3vw,22px);color:#2c4d5c;max-width:52ch;margin:0 0 40px}
+
+  /* ── STATS ── */
+  .stats{display:flex;gap:0;background:var(--paper);border:1px solid var(--rule);border-radius:2px;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+  .stat-item{flex:1;text-align:center;padding:18px 12px;border-right:1px solid var(--rule)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:"Oswald",sans-serif;font-weight:600;font-size:30px;color:var(--magenta);display:block;line-height:1;margin-bottom:4px}
+  .stat-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sound)}
+
+  /* ── GRID ── */
+  .grid-wrap{max-width:900px;margin:0 auto;padding:52px 24px 88px}
+  .section-label{
+    font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+    font-size:11px;color:var(--sound);margin-bottom:22px;display:flex;align-items:center;gap:14px;
+  }
+  .section-label::after{content:'';flex:1;height:1px;background:var(--rule)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* ── CARD ── */
+  .card{
+    background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+    padding:22px 22px 18px;box-shadow:0 1px 0 rgba(255,255,255,.7) inset;
+    display:flex;flex-direction:column;gap:10px;transition:box-shadow .18s,transform .18s;
+  }
+  .card:hover{box-shadow:0 6px 24px rgba(14,42,56,.1),0 1px 0 rgba(255,255,255,.7) inset;transform:translateY(-2px)}
+  .card-head{display:flex;align-items:flex-start;gap:16px}
+  .card-icon{width:48px;height:48px;flex-shrink:0}
+  .card-meta{flex:1}
+  .card-num{font-family:"Oswald",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sound);line-height:1;margin-bottom:4px}
+  .card-title{font-family:"Oswald",sans-serif;font-weight:500;font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin:0;line-height:1.12}
+  .card-desc{font-size:14px;color:#33586a;margin:0;flex:1;line-height:1.55}
+
+  /* progress bar per card */
+  .card-bar{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;margin-top:2px}
+  .card-bar-fill{height:100%;width:0%;border-radius:2px;background:var(--magenta);transition:width .5s ease}
+
+  .card-footer{display:flex;align-items:center;gap:10px;border-top:1px solid var(--rule);padding-top:14px;margin-top:4px}
+  .btn{
+    font-family:"Oswald",sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    text-decoration:none;padding:7px 16px;border-radius:2px;cursor:pointer;border:none;
+    transition:background .15s,color .15s;display:inline-block;
+  }
+  .btn-primary{background:var(--deep);color:var(--sea)}
+  .btn-primary:hover{background:#1a4a62}
+  .btn-outline{background:transparent;color:var(--magenta);border:1px solid var(--magenta)}
+  .btn-outline:hover{background:var(--magenta);color:#fff}
+  .badge{font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-left:auto;white-space:nowrap;font-family:"Oswald",sans-serif}
+  .badge-wip{background:var(--land);color:var(--sound)}
+  .badge-ready{background:rgba(111,154,168,.2);color:#1a5a6a}
+  .badge-ok{background:rgba(26,122,74,.14);color:var(--ok)}
+  .badge-mid{background:rgba(192,112,0,.12);color:var(--mid)}
+  .badge-ko{background:rgba(192,57,43,.1);color:var(--err)}
+
+  /* ── FOOTER ── */
+  footer{background:var(--deep);color:var(--sound);text-align:center;padding:28px 24px;font-family:"Oswald",sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+  footer a{color:var(--sea);text-decoration:none}
+  footer a:hover{color:var(--sound)}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .hero{padding:36px 16px 32px}
+    .grid-wrap{padding:32px 16px 60px}
+    .grid{grid-template-columns:1fr}
+    .stats{flex-wrap:wrap}
+    .stat-item{min-width:50%;border-bottom:1px solid var(--rule)}
+    .stat-item:nth-child(even){border-right:none}
+    nav{padding:0 16px}
+    .nav-tag{display:none}
+    .card{padding:18px 16px 14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sea)" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="8" r="3"/><path d="M12 11 L12 19"/><path d="M12 19 Q6 22 4 24"/><path d="M12 19 Q18 22 20 24"/><line x1="2" y1="24" x2="22" y2="24"/>
+    </svg>
+    Nautica
+  </a>
+  <span class="nav-tag">Patente · Vela e Motore</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="eyebrow">Portale didattico · Patente nautica a vela e motore</div>
+  <h1>Studia.<br><b>Esercitati. Parti.</b></h1>
+  <p class="hero-sub">Otto argomenti fondamentali — schede visive, diagrammi interattivi e quiz di allenamento per l'esame.</p>
+  <div class="stats">
+    <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Argomenti</span></div>
+    <div class="stat-item"><span class="stat-num">96</span><span class="stat-label">Domande quiz</span></div>
+    <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Schede interattive</span></div>
+    <div class="stat-item"><span class="stat-num" id="pct">—</span><span class="stat-label">Media quiz</span></div>
+  </div>
+</div>
+
+<!-- ── GRID ── -->
+<div class="grid-wrap">
+  <div class="section-label">Argomenti del corso</div>
+  <div class="grid">
+
+    <!-- 01 Normativa -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="9" y="5" width="26" height="34" rx="2" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+          <line x1="15" y1="14" x2="31" y2="14" stroke="var(--deep)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="15" y1="20" x2="31" y2="20" stroke="var(--deep)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="15" y1="26" x2="24" y2="26" stroke="var(--deep)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="35" cy="37" r="7" fill="var(--magenta)"/>
+          <text x="35" y="41" text-anchor="middle" fill="white" font-size="10" font-family="Georgia,serif" font-weight="bold">§</text>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">01 · Normativa</div>
+          <p class="card-title">Codice della<br>Navigazione</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-normativa"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Colreg, documenti di bordo, responsabilità del comandante, regole di precedenza e prevenzione delle collisioni.</p>
+      <div class="card-footer">
+        <a href="argomenti/01-normativa.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=normativa" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-normativa">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 02 Meteorologia -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="10" cy="20" r="6" fill="#FFD060" stroke="var(--deep)" stroke-width="1.5"/>
+          <path d="M10 8 L10 4 M10 36 L10 32 M2 20 L6 20 M22 20 L18 20 M5 13 L8 16 M15 24 L18 27" stroke="#FFD060" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 32 Q22 24 30 24 Q31 17 38 17 Q46 17 46 26 Q50 26 50 32 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="2" transform="translate(-8,0)"/>
+          <path d="M12 40 Q15 37 20 40" stroke="var(--sound)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M22 40 Q25 37 30 40" stroke="var(--sound)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M32 40 Q35 37 40 40" stroke="var(--sound)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">02 · Meteorologia</div>
+          <p class="card-title">Vento,<br>Maree e Tempo</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-meteorologia"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Scala Beaufort, direzione del vento, correnti, maree, bollettino meteo marino e lettura isobare.</p>
+      <div class="card-footer">
+        <a href="argomenti/02-meteorologia.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=meteorologia" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-meteorologia">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 03 Navigazione -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="18" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+          <circle cx="24" cy="24" r="4" fill="var(--deep)"/>
+          <line x1="24" y1="6" x2="24" y2="14" stroke="var(--deep)" stroke-width="1.8"/>
+          <line x1="24" y1="34" x2="24" y2="42" stroke="var(--deep)" stroke-width="1.8"/>
+          <line x1="6" y1="24" x2="14" y2="24" stroke="var(--deep)" stroke-width="1.8"/>
+          <line x1="34" y1="24" x2="42" y2="24" stroke="var(--deep)" stroke-width="1.8"/>
+          <path d="M24 8 L27 22 L24 19 L21 22 Z" fill="var(--magenta)"/>
+          <path d="M24 40 L21 26 L24 29 L27 26 Z" fill="var(--sound)"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">03 · Navigazione</div>
+          <p class="card-title">Carte e<br>Strumenti</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-navigazione"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Carte nautiche, bussola, GPS, calcolo di rotta, variazione magnetica, declinazione e punto nave stimato.</p>
+      <div class="card-footer">
+        <a href="argomenti/03-navigazione.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=navigazione" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-navigazione">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 04 Segnalamento -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="20" y="30" width="8" height="12" fill="var(--land)" stroke="var(--deep)" stroke-width="1.5"/>
+          <path d="M14 30 Q24 10 34 30 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+          <circle cx="24" cy="20" r="4" fill="#FFD060" stroke="var(--deep)" stroke-width="1.5"/>
+          <line x1="10" y1="30" x2="38" y2="30" stroke="var(--deep)" stroke-width="2"/>
+          <path d="M6 40 Q10 38 14 40 Q18 42 22 40 Q26 38 30 40 Q34 42 38 40 Q42 38 44 40" stroke="var(--sound)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">04 · Segnalamento</div>
+          <p class="card-title">Luci, Boe<br>e Segnali</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-segnalamento"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Fanali di navigazione, sistema AISM/IALA, boe laterali e cardinali, segnali sonori e visivi in navigazione.</p>
+      <div class="card-footer">
+        <a href="argomenti/04-segnalamento.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=segnalamento" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-segnalamento">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 05 Sicurezza -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="16" stroke="var(--magenta)" stroke-width="2.5" fill="none"/>
+          <circle cx="24" cy="24" r="7" fill="var(--land)" stroke="var(--magenta)" stroke-width="2"/>
+          <line x1="24" y1="8" x2="24" y2="17" stroke="var(--magenta)" stroke-width="2.5"/>
+          <line x1="24" y1="31" x2="24" y2="40" stroke="var(--magenta)" stroke-width="2.5"/>
+          <line x1="8" y1="24" x2="17" y2="24" stroke="var(--magenta)" stroke-width="2.5"/>
+          <line x1="31" y1="24" x2="40" y2="24" stroke="var(--magenta)" stroke-width="2.5"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">05 · Sicurezza</div>
+          <p class="card-title">Sicurezza<br>in Mare</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-sicurezza"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">DPI, giubbotto di salvataggio, segnali Mayday/Pan-pan/Securité, estintori e primo soccorso a bordo.</p>
+      <div class="card-footer">
+        <a href="argomenti/05-sicurezza.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=sicurezza" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-sicurezza">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 06 Manovre -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="13" r="6" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+          <line x1="24" y1="13" x2="24" y2="8" stroke="var(--deep)" stroke-width="2"/>
+          <path d="M24 19 L24 30" stroke="var(--deep)" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M24 30 Q14 36 12 44" stroke="var(--deep)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M24 30 Q34 36 36 44" stroke="var(--deep)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M6 44 L42 44" stroke="var(--sound)" stroke-width="2"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">06 · Manovre</div>
+          <p class="card-title">Ormeggio e<br>Manovre</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-manovre"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Ormeggio, disormeggio, ancoraggio, recupero uomo a mare, nodi fondamentali e uso del tender.</p>
+      <div class="card-footer">
+        <a href="argomenti/06-manovre.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=manovre" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-manovre">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 07 Motore -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="5" fill="var(--deep)"/>
+          <path d="M24 19 Q18 10 10 12 Q13 20 24 24" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+          <path d="M29 24 Q38 18 40 10 Q32 13 24 24" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+          <path d="M24 29 Q24 38 30 44 Q36 36 24 24" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+          <circle cx="24" cy="24" r="3" fill="var(--magenta)"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">07 · Motore</div>
+          <p class="card-title">Motore e<br>Meccanica</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-motore"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Motori entrobordo e fuoribordo, carburanti, elica, trasmissione, guasti comuni e manutenzione ordinaria.</p>
+      <div class="card-footer">
+        <a href="argomenti/07-motore.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=motore" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-motore">non fatto</span>
+      </div>
+    </div>
+
+    <!-- 08 Vela -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M10 36 Q24 38 38 36 L34 44 L14 44 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+          <line x1="24" y1="44" x2="24" y2="6" stroke="var(--deep)" stroke-width="2"/>
+          <path d="M24 8 Q40 18 36 36 L24 36 Z" fill="rgba(14,42,56,.13)" stroke="var(--deep)" stroke-width="1.8"/>
+          <path d="M24 14 Q10 22 14 36 L24 36 Z" fill="rgba(184,48,110,.13)" stroke="var(--magenta)" stroke-width="1.5"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">08 · Vela</div>
+          <p class="card-title">Teoria<br>della Vela</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-vela"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Come funziona la vela, andature, regolazione, seno e coseno applicati — con 5 schede illustrate e interattive.</p>
+      <div class="card-footer">
+        <a href="vela/index.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=vela" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-ready" id="badge-vela">5 schede</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>Portale Patente Nautica &mdash; Uso didattico personale &mdash; <a href="https://github.com/rick-manf/nautica">GitHub</a></p>
+</footer>
+
+<script>
+(function aggiornaProgress() {
+  var scores = JSON.parse(localStorage.getItem('quiz-scores') || '{}');
+  var args = ['normativa','meteorologia','navigazione','segnalamento','sicurezza','manovre','motore','vela'];
+  var totPct = 0, fatti = 0;
+
+  args.forEach(function(arg) {
+    var s = scores[arg];
+    var badge = document.getElementById('badge-' + arg);
+    var bar   = document.getElementById('bar-' + arg);
+    if (!s || !badge) return;
+
+    fatti++;
+    totPct += s.pct;
+
+    /* barra progresso */
+    if (bar) bar.style.width = s.pct + '%';
+
+    /* colore e testo badge */
+    var cls = s.pct >= 80 ? 'badge-ok' : s.pct >= 60 ? 'badge-mid' : 'badge-ko';
+    badge.className = 'badge ' + cls;
+    badge.textContent = s.score + '/' + s.total + ' · ' + s.pct + '%';
+  });
+
+  /* media globale */
+  var pctEl = document.getElementById('pct');
+  if (fatti > 0) {
+    pctEl.textContent = Math.round(totPct / fatti) + '%';
+  } else {
+    pctEl.textContent = '—';
+  }
+})();
+</script>
+
+</body>
+</html>

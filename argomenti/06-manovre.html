@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manovre — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 06 · Manovre</div>
+  <h1>Ormeggio e<br><b>Manovre</b></h1>
+  <p class="sub">Ormeggio, ancoraggio, recupero dell'uomo a mare e nodi fondamentali: le manovre che si fanno ogni giorno.</p>
+
+  <!-- 1. ORMEGGIO -->
+  <section>
+    <div class="tag">Porto</div>
+    <h2>Ormeggio a Banchina</h2>
+    <p>L'ormeggio corretto tiene la barca ferma con le <strong>cime di ormeggio</strong> distribuite per assorbire le sollecitazioni da tutte le direzioni:</p>
+
+    <svg viewBox="0 0 680 280" role="img" aria-label="Schema ormeggio con cime">
+      <defs>
+        <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--deep)"/>
+        </marker>
+      </defs>
+      <!-- banchina -->
+      <rect x="0" y="0" width="680" height="60" fill="var(--land)" stroke="var(--deep)" stroke-width="2"/>
+      <text class="lbl" x="340" y="38" text-anchor="middle">BANCHINA</text>
+      <!-- acqua -->
+      <rect x="0" y="60" width="680" height="220" fill="rgba(111,154,168,.15)"/>
+      <!-- barca -->
+      <path class="hull" d="M240,100 C248,180 252,220 250,260 L390,260 C388,220 392,180 400,100 Z"/>
+      <text class="lbl sm" x="320" y="200" text-anchor="middle">BARCA</text>
+
+      <!-- cime -->
+      <!-- spring prodiera -->
+      <path d="M400,120 L540,60" stroke="var(--magenta)" stroke-width="2.5" fill="none" stroke-dasharray="none"/>
+      <text class="lbl sm" x="490" y="82" fill="var(--magenta)">Spring prodiero</text>
+      <!-- cima di prua -->
+      <path d="M320,100 L200,60" stroke="var(--deep)" stroke-width="2.5" fill="none"/>
+      <text class="lbl sm" x="180" y="52">Cima di prua</text>
+      <!-- traversino prodiero -->
+      <path d="M370,108 L480,60" stroke="var(--sound)" stroke-width="2" fill="none"/>
+      <text class="lbl sm" x="440" y="56" fill="var(--sound)">Traversino</text>
+      <!-- cima di poppa -->
+      <path d="M320,260 L160,200" stroke="var(--deep)" stroke-width="2.5" fill="none"/>
+      <text class="lbl sm" x="110" y="196">Cima di poppa</text>
+      <!-- spring poppiero -->
+      <path d="M250,240 L120,60" stroke="var(--magenta)" stroke-width="2.5" fill="none"/>
+      <text class="lbl sm" x="60" y="150" fill="var(--magenta)">Spring poppiero</text>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>Cima di prua/poppa</dt><dd>impediscono lo spostamento longitudinale; primo ad essere dato e ultimo a essere tolto</dd></div>
+      <div class="key"><dt>Spring</dt><dd>cima incrociata che impedisce lo scivolamento avanti/indietro; fondamentale con corrente o traffico</dd></div>
+      <div class="key"><dt>Traversino</dt><dd>cima perpendicolare alla banchina; tiene la barca vicina alla banchina</dd></div>
+      <div class="key"><dt>Parabordi</dt><dd>proteggono lo scafo dalla banchina; posizionare prima di avvicinarsi</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2. ANCORAGGIO -->
+  <section>
+    <div class="tag">Ancoraggio</div>
+    <h2>Ancoraggio Corretto</h2>
+    <p>L'ancora lavora bene solo se la catena/cavo è quasi orizzontale sul fondo. La quantità di catena filata si chiama <strong>scorta</strong> o <strong>veering</strong>.</p>
+
+    <svg viewBox="0 0 680 240" role="img" aria-label="Schema ancoraggio">
+      <!-- fondo -->
+      <path d="M0,180 L680,180" stroke="var(--land)" stroke-width="3"/>
+      <rect x="0" y="180" width="680" height="60" fill="rgba(234,223,196,.4)"/>
+      <text class="ital" x="30" y="200">fondo</text>
+
+      <!-- catena corta (sbagliata) -->
+      <circle cx="140" cy="180" r="8" fill="var(--deep)"/>
+      <path d="M140,180 L200,60" stroke="#CC3333" stroke-width="2.5"/>
+      <path class="hull" d="M182,30 C188,50 190,58 188,66 L212,66 C210,58 212,50 218,30 Z"/>
+      <text class="lbl sm" x="200" y="22" text-anchor="middle" fill="#CC3333">Troppo corta</text>
+      <text class="ital" x="200" y="90" text-anchor="middle" fill="#CC3333">strappa</text>
+
+      <!-- catena giusta -->
+      <circle cx="340" cy="180" r="8" fill="var(--deep)"/>
+      <path d="M340,180 Q380,182 440,80" stroke="#117733" stroke-width="2.5" fill="none"/>
+      <path class="hull" d="M422,50 C428,70 430,78 428,86 L452,86 C450,78 452,70 458,50 Z"/>
+      <text class="lbl sm" x="440" y="40" text-anchor="middle" fill="#117733">Corretta (4–7×)</text>
+      <text class="ital" x="380" y="170" text-anchor="middle" fill="#117733">catena piatta sul fondo</text>
+
+      <!-- formula -->
+      <rect x="490" y="30" width="170" height="80" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="575" y="56" text-anchor="middle">Scorta minima</text>
+      <text class="ital" x="505" y="80">Catena: 4–5 × profondità</text>
+      <text class="ital" x="505" y="100">Cavo: 6–7 × profondità</text>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>Scelta del fondo</dt><dd>sabbia e fango = ottimo; roccia e posidonia = pericoloso (ancora non tiene)</dd></div>
+      <div class="key"><dt>Raggio di fonda</dt><dd>cerchio descritto dalla barca intorno all'ancora; tener conto delle altre barche all'ancora</dd></div>
+      <div class="key"><dt>Ancora galleggiante</dt><dd>paracadute lanciato in acqua di prua per ridurre lo scarroccio in caso di avaria motore</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3. UOMO A MARE -->
+  <section>
+    <div class="tag">Emergenza</div>
+    <h2>Recupero Uomo a Mare (MOB)</h2>
+    <p>L'uomo a mare è l'emergenza più frequente. La procedura standard per una barca a motore è la <strong>manovra a Q / Quick Stop</strong>:</p>
+    <div class="duo">
+      <div>
+        <p><strong>1.</strong> Grida "Uomo in mare!" — qualcuno punta il dito senza toglierlo dalla persona in acqua.</p>
+        <p><strong>2.</strong> Lancia il salvagente anulare con la sagola verso la persona.</p>
+        <p><strong>3.</strong> Premi MOB sul GPS/chartplotter (salva la posizione).</p>
+        <p><strong>4.</strong> Accosta immediatamente con la poppa lontana dall'uomo (elica = pericolo).</p>
+        <p><strong>5.</strong> Avvicinati lentamente sottovento/sottocorrente — la barca che porta l'uomo a bordo.</p>
+      </div>
+      <div>
+        <p><strong>Manovra a Q (Quick Stop):</strong></p>
+        <p>1. Gira tutto dalla parte dell'uomo; 2. Completa un cerchio e torna con vento al traverso; 3. Fermati sottovento; 4. Tira su a prua con l'elica ferma.</p>
+        <p><strong>Recupero:</strong> usa la scaletta di poppa, una drizza come imbracatura, o una rete. Non trainare mai la persona senza sostenerla.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. NODI -->
+  <section>
+    <div class="tag">Nodi fondamentali</div>
+    <h2>I Nodi Essenziali</h2>
+    <dl>
+      <div class="key"><dt>Nodo piano</dt><dd>unisce due cavi dello stesso diametro; si scioglie facilmente se tirato male</dd></div>
+      <div class="key"><dt>Gassa d'amante</dt><dd>forma un occhio fisso che non si stringe; il nodo di sicurezza per eccellenza (MOB, imbracatura)</dd></div>
+      <div class="key"><dt>Nodo galera</dt><dd>ormeggio rapido a una bitta o una bitte; si scioglie anche sotto carico</dd></div>
+      <div class="key"><dt>Nodo di bolina</dt><dd>unisce due cavi di diverso diametro; variante della gassa d'amante</dd></div>
+      <div class="key"><dt>Parlato o Mezzo collo</dt><dd>punto di partenza di quasi tutti i nodi; da solo non tiene</dd></div>
+      <div class="key"><dt>Nodo savoia</dt><dd>ferma il capo di una cima per evitare che scorra attraverso un bozzello</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=manovre">
+    <span>Mettiti alla prova — Quiz Manovre</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>

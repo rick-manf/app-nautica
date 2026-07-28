@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoria della Vela — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--sea:#DEEAEF;--paper:#FBF8F1;--land:#EADFC4;--deep:#0E2A38;--sound:#6F9AA8;--magenta:#B8306E;--rule:rgba(14,42,56,.16)}
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{
+    background:var(--sea);
+    background-image:
+      repeating-linear-gradient(to right,rgba(111,154,168,.18) 0 1px,transparent 1px 64px),
+      repeating-linear-gradient(to bottom,rgba(111,154,168,.18) 0 1px,transparent 1px 64px);
+    color:var(--deep);font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:16px;line-height:1.6;min-height:100vh;
+  }
+  nav{background:var(--deep);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:54px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(14,42,56,.28)}
+  .nav-logo{font-family:"Oswald",sans-serif;font-weight:600;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);text-decoration:none}
+  .nav-back{font-family:"Oswald",sans-serif;font-weight:300;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--sound);text-decoration:none}
+  .nav-back:hover{color:var(--sea)}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--magenta);margin-bottom:14px}
+  h1{font-family:"Oswald",sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(30px,6vw,52px);line-height:1.04;margin:0 0 .28em}
+  h1 b{font-weight:600}
+  .sub{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:clamp(17px,3vw,21px);color:#2c4d5c;max-width:52ch;margin:0 0 44px}
+  .schede{display:flex;flex-direction:column;gap:14px}
+  .scheda{
+    background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+    padding:20px 22px;box-shadow:0 1px 0 rgba(255,255,255,.7) inset;
+    display:flex;align-items:center;gap:20px;
+    text-decoration:none;color:inherit;
+    transition:box-shadow .18s,transform .18s;
+  }
+  .scheda:hover{box-shadow:0 6px 24px rgba(14,42,56,.1),0 1px 0 rgba(255,255,255,.7) inset;transform:translateX(4px)}
+  .scheda-num{
+    font-family:"Oswald",sans-serif;font-weight:600;font-size:28px;color:var(--magenta);
+    min-width:44px;text-align:center;opacity:.7;
+  }
+  .scheda-body{flex:1}
+  .scheda-tag{font-family:"Oswald",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sound)}
+  .scheda-title{font-family:"Oswald",sans-serif;font-weight:500;font-size:18px;letter-spacing:.04em;text-transform:uppercase;margin:2px 0 0;line-height:1.1}
+  .scheda-desc{font-size:13px;color:#33586a;margin:4px 0 0}
+  .scheda-arrow{color:var(--sound);font-size:22px;margin-left:auto}
+  .badge-tipo{
+    font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;
+    background:rgba(184,48,110,.12);color:var(--magenta);white-space:nowrap;
+  }
+  .divider{margin:40px 0 28px;border:none;border-top:1px solid var(--rule)}
+  .quiz-link{
+    background:var(--deep);color:var(--sea);border-radius:2px;padding:18px 22px;
+    display:flex;align-items:center;justify-content:space-between;text-decoration:none;
+    font-family:"Oswald",sans-serif;font-weight:500;font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+    transition:background .15s;
+  }
+  .quiz-link:hover{background:#1a4a62}
+  footer{background:var(--deep);color:var(--sound);text-align:center;padding:28px 24px;font-family:"Oswald",sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+  footer a{color:var(--sea);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Torna al portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 08 · Vela</div>
+  <h1>Teoria<br><b>della Vela</b></h1>
+  <p class="sub">Cinque schede illustrate per capire come funziona una vela, come si naviga e cosa dicono i filetti segnavento.</p>
+
+  <div class="schede">
+
+    <a class="scheda" href="../come funziona la vela (sin-cos)/1-come-funziona-la-vela.html">
+      <div class="scheda-num">01</div>
+      <div class="scheda-body">
+        <div class="scheda-tag">Scheda visiva · vela 01</div>
+        <div class="scheda-title">La vela è un'ala</div>
+        <div class="scheda-desc">Depressione e sovrapressione, chiglia, rosa delle andature, filetti segnavento.</div>
+      </div>
+      <span class="badge-tipo">Visiva</span>
+      <span class="scheda-arrow">›</span>
+    </a>
+
+    <a class="scheda" href="../come funziona la vela (sin-cos)/2-le-vele.html">
+      <div class="scheda-num">02</div>
+      <div class="scheda-body">
+        <div class="scheda-tag">Scheda visiva · vela 02</div>
+        <div class="scheda-title">Il guardaroba di bordo</div>
+        <div class="scheda-desc">I tre lati e gli angoli, quattro vele per quattro venti, randa e fiocco.</div>
+      </div>
+      <span class="badge-tipo">Visiva</span>
+      <span class="scheda-arrow">›</span>
+    </a>
+
+    <a class="scheda" href="../come funziona la vela (sin-cos)/3-spinta-e-andature.html">
+      <div class="scheda-num">03</div>
+      <div class="scheda-body">
+        <div class="scheda-tag">Scheda visiva · vela 03</div>
+        <div class="scheda-title">Un solo angolo decide tutto</div>
+        <div class="scheda-desc">Quanta spinta va davvero avanti, perché il traverso è l'andatura più veloce.</div>
+      </div>
+      <span class="badge-tipo">Visiva</span>
+      <span class="scheda-arrow">›</span>
+    </a>
+
+    <a class="scheda" href="../come funziona la vela (sin-cos)/4-DINAMICO-seno-e-coseno.html">
+      <div class="scheda-num">04</div>
+      <div class="scheda-body">
+        <div class="scheda-tag">Scheda interattiva · matematica 01</div>
+        <div class="scheda-title">Seno e coseno senza formule</div>
+        <div class="scheda-desc">Il quarto di cerchio, le curve di seno/coseno, la regola di Pitagora applicata alla vela.</div>
+      </div>
+      <span class="badge-tipo">Dinamica</span>
+      <span class="scheda-arrow">›</span>
+    </a>
+
+    <a class="scheda" href="../come funziona la vela (sin-cos)/5-DINAMICO-andature-e-regolazione-vela.html">
+      <div class="scheda-num">05</div>
+      <div class="scheda-body">
+        <div class="scheda-tag">Simulatore interattivo</div>
+        <div class="scheda-title">Andature e regolazione della vela</div>
+        <div class="scheda-desc">Simulatore completo: ruota la barca, regola la scotta, leggi la rosa delle andature in tempo reale.</div>
+      </div>
+      <span class="badge-tipo">Simulatore</span>
+      <span class="scheda-arrow">›</span>
+    </a>
+
+  </div>
+
+  <hr class="divider">
+
+  <a class="quiz-link" href="../quiz/quiz.html?arg=vela">
+    <span>Quiz — Teoria della Vela</span>
+    <span>Inizia il quiz &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+
+</body>
+</html>

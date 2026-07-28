@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Normativa — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 01 · Normativa</div>
+  <h1>Codice della<br><b>Navigazione</b></h1>
+  <p class="sub">Le regole fondamentali per navigare in sicurezza: COLREG, precedenze, documenti e responsabilità del comandante.</p>
+
+  <!-- 1. COLREG -->
+  <section>
+    <div class="tag">Regola chiave</div>
+    <h2>COLREG — Regole di Precedenza</h2>
+    <p>Il <strong>Regolamento Internazionale per Prevenire gli Abbordi in Mare (COLREG 1972)</strong> stabilisce chi deve dare la precedenza. La regola fondamentale: chi ha la precedenza <em>mantiene rotta e velocità</em>, chi deve dare precedenza <em>manovra chiaramente e per tempo</em>.</p>
+
+    <svg viewBox="0 0 720 380" role="img" aria-label="Schema precedenze tra imbarcazioni">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--magenta)"/>
+        </marker>
+        <marker id="ar-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--sound)"/>
+        </marker>
+        <g id="barca">
+          <path d="M0,-18 C7,-8 8,8 6,18 L-6,18 C-8,8 -7,-8 0,-18 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+        </g>
+      </defs>
+
+      <!-- CASO 1: rotte che si incrociano -->
+      <text class="lbl" x="70" y="28">Rotte che si incrociano</text>
+      <g transform="translate(120,180) rotate(0)"><use href="#barca"/></g>
+      <path class="force" d="M120,162 L120,80" marker-end="url(#ar)"/>
+      <text class="lbl sm" x="125" y="90">mantiene</text>
+
+      <g transform="translate(220,180) rotate(-90)"><use href="#barca"/></g>
+      <path d="M220,180 L300,180" stroke="var(--sound)" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#ar-s)"/>
+      <text class="ital" x="230" y="216">deve cedere</text>
+      <path d="M184,180 Q184,240 250,240" stroke="var(--deep)" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+      <text class="lbl sm" x="148" y="270" font-size="11">manovra verso</text>
+      <text class="lbl sm" x="148" y="284" font-size="11">dritta (poppa)</text>
+
+      <text class="ital" x="76" y="200">priorità</text>
+      <text class="lbl" x="70" y="148" fill="var(--magenta)" font-size="12">CHI HA A DRITTA</text>
+      <text class="lbl" x="70" y="162" fill="var(--magenta)" font-size="12">HA PRECEDENZA</text>
+
+      <!-- divider -->
+      <line x1="360" y1="20" x2="360" y2="360" stroke="var(--rule)" stroke-width="1.5"/>
+
+      <!-- CASO 2: sorpasso -->
+      <text class="lbl" x="390" y="28">Sorpasso</text>
+      <g transform="translate(460,200) rotate(0)"><use href="#barca"/></g>
+      <path class="force" d="M460,182 L460,100" marker-end="url(#ar)"/>
+      <text class="lbl sm" x="468" y="116">precedenza</text>
+      <text class="ital" x="400" y="200">barca doppiata</text>
+
+      <g transform="translate(520,230) rotate(0)"><use href="#barca"/></g>
+      <path d="M520,212 L520,100" stroke="var(--sound)" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+      <path d="M540,220 Q590,220 590,100" stroke="var(--deep)" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+      <text class="lbl sm" x="542" y="280">deve aggirare</text>
+      <text class="ital" x="380" y="280">chi sorpassa</text>
+      <text class="lbl" x="378" y="300" fill="var(--magenta)" font-size="12">CEDE SEMPRE</text>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>Barca a vela</dt><dd>ha precedenza sulla barca a motore (salvo che stia sorpassando)</dd></div>
+      <div class="key"><dt>A dritta</dt><dd>chi ha un'altra imbarcazione alla propria dritta deve dare la precedenza</dd></div>
+      <div class="key"><dt>Sorpasso</dt><dd>chi sorpassa deve sempre dare precedenza alla barca sorpassata, anche se è a vela</dd></div>
+      <div class="key"><dt>Prua contro prua</dt><dd>entrambe accostano a dritta (si passano fianco sinistro)</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2. ZONA DI NAVIGAZIONE -->
+  <section>
+    <div class="tag">Patente nautiche</div>
+    <h2>Abilitazioni e Zone di Navigazione</h2>
+    <p>La patente nautica italiana si distingue per <strong>tipo di propulsione</strong> (vela, motore o entrambi) e per <strong>distanza dalla costa</strong>:</p>
+    <div class="duo">
+      <div>
+        <p><strong>Entro 12 miglia</strong> dalla costa — navigazione costiera. Non obbligatoria per natanti &lt;10 m con motore &lt;40,8 kW.</p>
+        <p><strong>Senza limiti</strong> dalla costa — oceano e alto mare, richiede l'abilitazione estesa.</p>
+      </div>
+      <div>
+        <p><strong>Acque interne</strong> — fiumi, laghi e canali: patente specifica o equipollente.</p>
+        <p>L'abilitazione vela comprende anche la navigazione a motore entro 12 miglia; quella oltre 12 miglia richiede specifica formazione meteorologica e di navigazione.</p>
+      </div>
+    </div>
+    <p class="cap">Il certificato di idoneità tecnica (CIN) identifica l'imbarcazione; la licenza di navigazione (o atto di nazionalità per navi) è il documento di bordo principale insieme al certificato di sicurezza.</p>
+  </section>
+
+  <!-- 3. DOCUMENTI DI BORDO -->
+  <section>
+    <div class="tag">Obblighi a bordo</div>
+    <h2>Documenti e Dotazioni Obbligatorie</h2>
+    <p>A bordo devono sempre essere presenti:</p>
+    <dl>
+      <div class="key"><dt>Licenza di navigazione</dt><dd>documento dell'imbarcazione, con dati tecnici e armatore</dd></div>
+      <div class="key"><dt>Certificato di sicurezza</dt><dd>attesta che bordo è a norma; ha una scadenza e richiede rinnovi periodici</dd></div>
+      <div class="key"><dt>Polizza assicurativa</dt><dd>obbligatoria per la responsabilità civile verso terzi</dd></div>
+      <div class="key"><dt>Patente del conduttore</dt><dd>quando obbligatoria per legge (motore &gt;40,8 kW o navigazione &gt;1 miglio dalla riva)</dd></div>
+      <div class="key"><dt>Registro di bordo</dt><dd>per imbarcazioni &gt;24 m: annotazione di rotte, eventi, turni di guardia</dd></div>
+      <div class="key"><dt>Libretto di navigazione</dt><dd>per le imbarcazioni da diporto: sostituisce la licenza nelle acque interne</dd></div>
+    </dl>
+  </section>
+
+  <!-- 4. RESPONSABILITA' -->
+  <section>
+    <div class="tag">Responsabilità</div>
+    <h2>Il Comandante e la Colpa Nautica</h2>
+    <p>Il <strong>comandante</strong> è responsabile della sicurezza dell'imbarcazione, dell'equipaggio e dei passeggeri. Alcune regole fondamentali:</p>
+    <dl>
+      <div class="key"><dt>Obbligo di soccorso</dt><dd>obbligo assoluto di prestare soccorso a chi è in pericolo in mare, salvo pericolo grave per la propria imbarcazione</dd></div>
+      <div class="key"><dt>Colpa nautica</dt><dd>negligenza, imprudenza o imperizia nella condotta dell'imbarcazione; può comportare responsabilità civile e penale</dd></div>
+      <div class="key"><dt>Velocità di sicurezza</dt><dd>velocità tale da poter effettuare manovre appropriate e fermarsi entro una distanza adeguata alle circostanze</dd></div>
+      <div class="key"><dt>Stato di ebbrezza</dt><dd>limite 0,5 g/l di alcol nel sangue per i conduttori; a 0,8 g/l scatta il reato penale</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=normativa">
+    <span>Mettiti alla prova — Quiz Normativa</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>
