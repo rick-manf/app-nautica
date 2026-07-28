@@ -7,6 +7,7 @@ const TITOLI = {
   manovre:       'Manovre — Ormeggio e Manovre',
   motore:        'Motore e Meccanica',
   vela:          'Teoria della Vela',
+  scafo:         'Struttura dello Scafo',
 };
 
 const DOMANDE = {
@@ -632,6 +633,84 @@ const DOMANDE = {
       opts: ['Cazzare la scotta per chiudere la vela', 'Orzare un filo o lascara la scotta', 'Alzare il boma', 'Cambiare mure'],
       correct: 1,
       tip: 'Filetto sottovento in aria = la vela è troppo lascata oppure si sta poggiando troppo. Rimedio: orzare un filo o cazzare la scotta.'
+    },
+  ],
+
+  /* ══════════════════════════════════════════════
+     09 — STRUTTURA DELLO SCAFO
+  ══════════════════════════════════════════════ */
+  scafo: [
+    {
+      q: 'Come si chiama la parte anteriore dell\'imbarcazione?',
+      opts: ['Poppa', 'Prua', 'Murata', 'Babordo'],
+      correct: 1,
+      tip: 'La prua è la parte anteriore. La poppa è la parte posteriore. Murata e babordo indicano i lati.'
+    },
+    {
+      q: 'L\'opera viva corrisponde a:',
+      opts: ['La parte dello scafo sopra la linea d\'acqua', 'La parte dello scafo immersa (carena)', 'Il ponte di coperta', 'La chiglia esterna'],
+      correct: 1,
+      tip: 'Opera viva = carena = parte immersa. Opera morta = murata = parte fuori dall\'acqua. La linea d\'acqua le separa.'
+    },
+    {
+      q: 'La "sentina" è:',
+      opts: ['Il pavimento del ponte', 'La zona più bassa dell\'interno dello scafo dove si raccoglie l\'acqua', 'La struttura di ringhiera laterale', 'Il vano di poppa'],
+      correct: 1,
+      tip: 'La sentina è il punto più basso interno allo scafo: raccoglie acqua piovana, di mare o di perdite. Va tenuta asciutta con la pompa di sentina.'
+    },
+    {
+      q: 'Il "beccheggio" è il movimento:',
+      opts: ['Laterale, da sinistra a destra', 'Verticale puro (su e giù)', 'Longitudinale: la prua sale mentre la poppa scende e viceversa', 'Rotatorio intorno all\'asse verticale'],
+      correct: 2,
+      tip: 'Beccheggio = rotazione attorno all\'asse trasversale. Rollio = rotazione attorno all\'asse longitudinale. Sussulto = traslazione verticale.'
+    },
+    {
+      q: 'Le "ordinate" (o costole) sono:',
+      opts: ['Le travi orizzontali che reggono il ponte', 'Le strutture trasversali che danno forma allo scafo', 'I longheroni longitudinali interni ai fianchi', 'La trave centrale longitudinale'],
+      correct: 1,
+      tip: 'Le ordinate sono le "costole" della barca: strutture trasversali che sagomano lo scafo. I bagli reggono il ponte. Le serrette sono longitudinali.'
+    },
+    {
+      q: 'Come si classifica un\'imbarcazione da diporto di 14 metri?',
+      opts: ['Natante', 'Imbarcazione da diporto', 'Nave da diporto', 'Unità minore'],
+      correct: 1,
+      tip: 'Natanti: fino a 10 m. Imbarcazioni: 10–24 m. Navi da diporto: oltre 24 m. 14 m = imbarcazione, sempre soggetta a patente.'
+    },
+    {
+      q: 'Cosa si intende per "sopravvento"?',
+      opts: ['Il lato protetto dal vento', 'Il lato da cui proviene il vento', 'La direzione verso cui soffia il vento', 'Il bordo libero del francobordo'],
+      correct: 1,
+      tip: 'Sopravvento = lato da cui viene il vento (più esposto). Sottovento = lato opposto (più riparato). Fondamentale per manovre di ormeggio e sicurezza.'
+    },
+    {
+      q: 'I "bagli" sono:',
+      opts: ['Le costole trasversali dello scafo', 'Le travi orizzontali trasversali che reggono il ponte', 'I longheroni laterali interni', 'Le aperture per scaricare l\'acqua dal ponte'],
+      correct: 1,
+      tip: 'I bagli sono le travi che reggono la coperta (il ponte). Le ordinate danno forma allo scafo. Le serrette uniscono le ordinate longitudinalmente.'
+    },
+    {
+      q: 'Il "pescaggio" è:',
+      opts: ['Il peso dell\'imbarcazione a pieno carico', 'La profondità massima dell\'imbarcazione sotto la linea d\'acqua', 'La lunghezza dello scafo fuori tutto', 'Il volume della stiva'],
+      correct: 1,
+      tip: 'Il pescaggio indica quanta acqua è necessaria per galleggiare senza toccare il fondo. Fondamentale in porti poco profondi e in navigazione costiera.'
+    },
+    {
+      q: 'Il "pozzetto" è:',
+      opts: ['Il foro per la catena dell\'ancora', 'La zona incassata di poppa dove si trova la ruota del timone', 'Il vano per i gavoni', 'Il portello di accesso alla stiva'],
+      correct: 1,
+      tip: 'Il pozzetto è la zona di pilotaggio a poppa, generalmente incassata rispetto alla coperta. Ospita timone, winch, paterazzo e strumenti.'
+    },
+    {
+      q: 'Cosa sono i "gavoni"?',
+      opts: ['Le costole dello scafo', 'Vani chiusi di stivaggio a prua e a poppa', 'I fori di drenaggio del ponte', 'Le bitte di ormeggio'],
+      correct: 1,
+      tip: 'I gavoni sono compartimenti di stivaggio accessibili dall\'esterno. Il gavone di prua ospita ancora, catena, cime; quello di poppa le bombole o l\'ancora di rispetto.'
+    },
+    {
+      q: 'Il "rollio" è il movimento:',
+      opts: ['Della prua che sale e scende sulle onde', 'Verticale (su e giù) senza rotazione', 'Laterale di oscillazione attorno all\'asse longitudinale', 'Di rotazione attorno all\'asse verticale (imbardata)'],
+      correct: 2,
+      tip: 'Rollio = oscillazione da sinistra a destra attorno all\'asse longitudinale (prua-poppa). È tipico delle onde di traverso e può causare mal di mare.'
     },
   ],
 

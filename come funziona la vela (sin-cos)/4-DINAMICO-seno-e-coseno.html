@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seno e coseno — scheda visiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#DEEAEF;--paper:#FBF8F1;--land:#EADFC4;
+    --deep:#0E2A38;--sound:#6F9AA8;--magenta:#B8306E;--rule:rgba(14,42,56,.16);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--sea);
+    background-image:
+      repeating-linear-gradient(to right, rgba(111,154,168,.18) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(to bottom, rgba(111,154,168,.18) 0 1px, transparent 1px 64px);
+    color:var(--deep);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.6;padding:28px 16px 72px;
+  }
+  .wrap{max-width:880px;margin:0 auto}
+  header{margin-bottom:34px}
+  .eyebrow{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--magenta)}
+  h1{font-family:"Oswald",sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(30px,7vw,52px);line-height:1.05;margin:.18em 0 .3em}
+  h1 b{font-weight:600}
+  .sub{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:clamp(17px,3.4vw,21px);color:#2c4d5c;max-width:52ch;margin:0}
+  section{background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:22px 18px 26px;margin-bottom:26px;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+  .tag{font-family:"Oswald",sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--sound)}
+  h2{font-family:"Oswald",sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,4.4vw,28px);margin:.12em 0 .5em}
+  p{margin:0 0 14px}
+  svg{display:block;width:100%;height:auto;margin:6px 0 10px}
+  .cap{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:16px;color:#33586a;border-top:1px solid var(--rule);padding-top:10px}
+
+  /* controls */
+  .ctrl{margin:4px 0 18px}
+  .readout{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+  .cell{flex:1 1 120px;border:1px solid var(--rule);padding:10px 12px;background:rgba(111,154,168,.09)}
+  .cell .k{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--sound)}
+  .cell .v{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.2}
+  .cell.hi{background:rgba(184,48,110,.10)}
+  .cell.hi .v{color:var(--magenta)}
+  input[type=range]{width:100%;accent-color:var(--magenta);height:32px}
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .presets button{
+    font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;
+    background:var(--paper);border:1px solid var(--rule);color:var(--deep);
+    padding:8px 12px;cursor:pointer;border-radius:2px;
+  }
+  .presets button:hover{border-color:var(--magenta);color:var(--magenta)}
+  .presets button:focus-visible{outline:2px solid var(--magenta);outline-offset:2px}
+  label.slab{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--sound);display:block;margin-bottom:2px}
+
+  table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px}
+  th{font-family:"Oswald",sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--sound);text-align:right;padding:8px 6px;border-bottom:1.5px solid var(--rule)}
+  th:first-child,td:first-child{text-align:left}
+  td{padding:8px 6px;border-bottom:1px solid var(--rule);text-align:right;font-variant-numeric:tabular-nums}
+  td:first-child{font-family:"Oswald",sans-serif;letter-spacing:.05em;font-size:13px}
+  tr.peak td{background:rgba(184,48,110,.09)}
+
+  .box{border-left:3px solid var(--magenta);padding:2px 0 2px 16px;margin:16px 0}
+  .lbl{font-family:"Oswald",sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;fill:var(--deep)}
+  .lbl.sm{font-size:12px;letter-spacing:.1em;fill:var(--sound)}
+  .ital{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:15px;fill:#33586a}
+  @media (prefers-reduced-motion:no-preference){
+    .smooth{transition:all .12s linear}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Scheda visiva · matematica 01</div>
+  <h1>Seno e coseno<br><b>senza formule</b></h1>
+  <p class="sub">Due numeri che rispondono a una sola domanda: di questa spinta obliqua, quanta va avanti e quanta va di lato?</p>
+</header>
+
+<!-- INTERATTIVO -->
+<section>
+  <div class="tag">Figura 1 · muovi il cursore</div>
+  <h2>Il quarto di cerchio</h2>
+
+  <div class="readout">
+    <div class="cell"><div class="k">Angolo δ</div><div class="v"><span id="vAng">47</span>°</div></div>
+    <div class="cell hi"><div class="k">Sen δ · avanti</div><div class="v" id="vSin">0,73</div></div>
+    <div class="cell"><div class="k">Cos δ · di lato</div><div class="v" id="vCos">0,68</div></div>
+  </div>
+
+  <div class="ctrl">
+    <label class="slab" for="ang">Apertura della vela rispetto all'asse della barca</label>
+    <input type="range" id="ang" min="0" max="90" value="47" step="1" aria-label="Angolo delta in gradi">
+    <div class="presets">
+      <button data-a="12">Bolina stretta 12°</button>
+      <button data-a="23">Bolina larga 23°</button>
+      <button data-a="47">Traverso 47°</button>
+      <button data-a="80">Lasco 80°</button>
+      <button data-a="88">Poppa 88°</button>
+    </div>
+  </div>
+
+  <svg viewBox="0 0 620 440" role="img" aria-label="Quarto di cerchio unitario con le proiezioni della forza">
+    <defs>
+      <marker id="am4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--magenta)"/>
+      </marker>
+    </defs>
+    <!-- axes -->
+    <line x1="150" y1="380" x2="530" y2="380" stroke="var(--deep)" stroke-width="1.6"/>
+    <line x1="150" y1="380" x2="150" y2="60" stroke="var(--deep)" stroke-width="1.6"/>
+    <text class="lbl sm" x="150" y="44" text-anchor="middle">↑ prua</text>
+    <text class="lbl sm" x="540" y="384">di lato →</text>
+    <!-- arc -->
+    <path d="M400,380 A250,250 0 0,0 150,130" fill="none" stroke="var(--sound)" stroke-width="1.6" stroke-dasharray="4 6"/>
+    <!-- ticks -->
+    <line x1="400" y1="374" x2="400" y2="386" stroke="var(--deep)" stroke-width="1.6"/>
+    <text class="ital" x="400" y="404" text-anchor="middle">1</text>
+    <line x1="144" y1="130" x2="156" y2="130" stroke="var(--deep)" stroke-width="1.6"/>
+    <text class="ital" x="134" y="136" text-anchor="end">1</text>
+
+    <!-- components -->
+    <line id="barY" class="smooth" x1="150" y1="380" x2="150" y2="197" stroke="var(--magenta)" stroke-width="7" stroke-linecap="round"/>
+    <line id="barX" class="smooth" x1="150" y1="380" x2="320" y2="380" stroke="var(--deep)" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+    <!-- dashed projections -->
+    <line id="dashV" class="smooth" x1="320" y1="197" x2="320" y2="380" stroke="var(--magenta)" stroke-width="1.3" stroke-dasharray="5 5"/>
+    <line id="dashH" class="smooth" x1="320" y1="197" x2="150" y2="197" stroke="var(--magenta)" stroke-width="1.3" stroke-dasharray="5 5"/>
+    <!-- radius = force -->
+    <line id="rad" class="smooth" x1="150" y1="380" x2="320" y2="197" stroke="var(--magenta)" stroke-width="4.5" marker-end="url(#am4)"/>
+    <!-- sail -->
+    <line id="sail" class="smooth" x1="270" y1="140" x2="370" y2="254" stroke="var(--deep)" stroke-width="6" stroke-linecap="round"/>
+    <!-- angle arc -->
+    <path id="arc" class="smooth" d="" fill="none" stroke="var(--magenta)" stroke-width="2"/>
+    <text id="tAng" class="lbl" x="215" y="366" fill="var(--magenta)">δ</text>
+    <!-- boat -->
+    <path d="M150,398 m-13,0 l0,-26 q13,-16 26,0 l0,26 z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+    <!-- moving labels -->
+    <text id="tSin" class="lbl" x="132" y="290" text-anchor="end" fill="var(--magenta)">sen δ</text>
+    <text id="tCos" class="lbl" x="235" y="418" text-anchor="middle">cos δ</text>
+    <text id="tSail" class="ital" x="392" y="252">la vela</text>
+    <text class="ital" x="470" y="180" text-anchor="middle">la freccia</text>
+    <text class="ital" x="470" y="200" text-anchor="middle">è lunga 1</text>
+  </svg>
+  <p class="cap">La freccia è la forza del vento, sempre lunga 1 e sempre perpendicolare alla vela. Il seno è quanto sale, il coseno è quanto si sposta di lato. Muovendo il cursore vedi l'unica cosa che conta: quando uno cresce, l'altro cala.</p>
+</section>
+
+<!-- CURVE -->
+<section>
+  <div class="tag">Figura 2 · da 0° a 90°</div>
+  <h2>Le due curve</h2>
+  <svg id="curves" viewBox="0 0 700 350" role="img" aria-label="Andamento di seno e coseno da 0 a 90 gradi"></svg>
+  <p class="cap">A 45° le due curve si incrociano: è l'unico angolo in cui la spinta in avanti e quella di lato sono uguali, e vale 0,71 per entrambe. Non a caso il traverso, con la vela intorno ai 47°, cade proprio lì.</p>
+</section>
+
+<!-- TABELLA -->
+<section>
+  <div class="tag">Riferimento · i valori da conoscere</div>
+  <h2>Undici numeri</h2>
+  <table>
+    <thead><tr><th>Angolo</th><th>Seno</th><th>Coseno</th><th>In barca</th></tr></thead>
+    <tbody>
+      <tr><td>0°</td><td>0,00</td><td>1,00</td><td>vela al centro: tutto di lato</td></tr>
+      <tr><td>10°</td><td>0,17</td><td>0,98</td><td>—</td></tr>
+      <tr><td>12°</td><td>0,21</td><td>0,98</td><td>bolina stretta</td></tr>
+      <tr><td>23°</td><td>0,39</td><td>0,92</td><td>bolina larga</td></tr>
+      <tr><td>30°</td><td>0,50</td><td>0,87</td><td>metà esatta</td></tr>
+      <tr class="peak"><td>45°</td><td>0,71</td><td>0,71</td><td>pareggio</td></tr>
+      <tr><td>47°</td><td>0,73</td><td>0,68</td><td>traverso</td></tr>
+      <tr><td>60°</td><td>0,87</td><td>0,50</td><td>—</td></tr>
+      <tr><td>80°</td><td>0,98</td><td>0,17</td><td>lasco</td></tr>
+      <tr><td>88°</td><td>1,00</td><td>0,03</td><td>poppa</td></tr>
+      <tr><td>90°</td><td>1,00</td><td>0,00</td><td>vela di traverso: tutto avanti</td></tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <p style="margin:0"><strong>Simmetria da notare.</strong> Il seno di 12° (0,21) è il coseno di 78°, e viceversa. Le due funzioni sono la stessa cosa vista dai due lati del triangolo: <em>co-seno</em> vuol dire proprio "seno del complementare", cioè di quel che manca per arrivare a 90°.</p>
+  </div>
+</section>
+
+<!-- PITAGORA -->
+<section>
+  <div class="tag">Figura 3 · perché non fanno 100</div>
+  <h2>La regola di Pitagora</h2>
+  <svg viewBox="0 0 700 300" role="img" aria-label="Il triangolo rettangolo formato da seno, coseno e ipotenusa 1">
+    <path d="M120,240 L420,240 L420,90 Z" fill="rgba(111,154,168,.20)" stroke="var(--deep)" stroke-width="2.4"/>
+    <path d="M420,240 L420,214 L394,214 L394,240 Z" fill="none" stroke="var(--deep)" stroke-width="1.6"/>
+    <line x1="120" y1="240" x2="420" y2="90" stroke="var(--magenta)" stroke-width="4.5"/>
+    <text class="lbl" x="240" y="140" fill="var(--magenta)">1</text>
+    <text class="lbl" x="270" y="266" text-anchor="middle">cos δ = 0,98</text>
+    <text class="lbl" x="436" y="172">sen δ = 0,21</text>
+    <path d="M170,240 A50,50 0 0,0 165,215" fill="none" stroke="var(--magenta)" stroke-width="2"/>
+    <text class="lbl" x="150" y="228" fill="var(--magenta)">δ</text>
+    <text class="ital" x="470" y="98">0,98² + 0,21² = 1</text>
+    <text class="ital" x="470" y="122">0,96 + 0,04 = 1</text>
+    <text class="ital" x="470" y="152">ma 98% + 21% = 119%</text>
+    <text class="ital" x="470" y="176">e va benissimo così:</text>
+    <text class="ital" x="470" y="200">sono due lati, non due fette</text>
+  </svg>
+  <p class="cap">Seno e coseno sono i due cateti di un triangolo rettangolo la cui ipotenusa vale 1. Si sommano secondo Pitagora — al quadrato — non come percentuali di una torta. È il motivo per cui in bolina puoi avere il 21% in avanti e il 98% di lato senza che nulla sia sbagliato.</p>
+</section>
+
+<p style="text-align:center;font-family:'EB Garamond',Georgia,serif;font-style:italic;color:#33586a;max-width:46ch;margin:0 auto">
+Scheda 04 · sul telefono, calcolatrice in orizzontale e modalità DEG: sen 47 dà 0,731
+</p>
+
+</div>
+
+<script>
+(function(){
+  var R = 250, CX = 150, CY = 380;
+  var slider = document.getElementById('ang');
+  var vAng = document.getElementById('vAng'), vSin = document.getElementById('vSin'), vCos = document.getElementById('vCos');
+  var rad = document.getElementById('rad'), sail = document.getElementById('sail');
+  var barX = document.getElementById('barX'), barY = document.getElementById('barY');
+  var dashV = document.getElementById('dashV'), dashH = document.getElementById('dashH');
+  var arc = document.getElementById('arc'), tAng = document.getElementById('tAng');
+  var tSin = document.getElementById('tSin'), tCos = document.getElementById('tCos'), tSail = document.getElementById('tSail');
+
+  function it(n){ return n.toFixed(2).replace('.', ','); }
+
+  function draw(deg){
+    var r = deg * Math.PI / 180;
+    var s = Math.sin(r), c = Math.cos(r);
+    var px = CX + R * c, py = CY - R * s;
+
+    rad.setAttribute('x2', px); rad.setAttribute('y2', py);
+    barX.setAttribute('x2', px);
+    barY.setAttribute('y2', py);
+    dashV.setAttribute('x1', px); dashV.setAttribute('y1', py); dashV.setAttribute('x2', px);
+    dashH.setAttribute('x1', px); dashH.setAttribute('y1', py); dashH.setAttribute('y2', py);
+
+    // sail: perpendicular to the radius, through P
+    var L = 58, ux = s, uy = c;
+    sail.setAttribute('x1', px - L*ux); sail.setAttribute('y1', py - L*uy);
+    sail.setAttribute('x2', px + L*ux); sail.setAttribute('y2', py + L*uy);
+    tSail.setAttribute('x', px + L*ux + 10); tSail.setAttribute('y', py + L*uy + 16);
+
+    // angle arc
+    var ar = 62;
+    var ex = CX + ar*c, ey = CY - ar*s;
+    arc.setAttribute('d', deg < 1 ? '' : 'M' + (CX+ar) + ',' + CY + ' A' + ar + ',' + ar + ' 0 0,0 ' + ex + ',' + ey);
+    var half = (deg/2) * Math.PI/180;
+    tAng.setAttribute('x', CX + 82*Math.cos(half) - 8);
+    tAng.setAttribute('y', CY - 82*Math.sin(half) + 6);
+
+    tSin.setAttribute('y', (CY + py)/2 + 6);
+    tCos.setAttribute('x', (CX + px)/2);
+
+    vAng.textContent = deg;
+    vSin.textContent = it(s);
+    vCos.textContent = it(c);
+  }
+
+  slider.addEventListener('input', function(){ draw(parseInt(slider.value, 10)); });
+  Array.prototype.forEach.call(document.querySelectorAll('.presets button'), function(b){
+    b.addEventListener('click', function(){
+      slider.value = b.dataset.a;
+      draw(parseInt(b.dataset.a, 10));
+    });
+  });
+  draw(47);
+
+  // curves
+  var svg = document.getElementById('curves');
+  var X0 = 70, X1 = 640, Y0 = 285, Y1 = 65, NS = 'http://www.w3.org/2000/svg';
+  function xOf(d){ return X0 + (d/90)*(X1-X0); }
+  function yOf(v){ return Y0 - v*(Y0-Y1); }
+  function el(tag, attrs, text){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text) e.textContent = text;
+    svg.appendChild(e); return e;
+  }
+  el('line', {x1:X0, y1:Y0, x2:X1, y2:Y0, stroke:'var(--deep)', 'stroke-width':1.6});
+  el('line', {x1:X0, y1:Y0, x2:X0, y2:Y1-10, stroke:'var(--deep)', 'stroke-width':1.6});
+  [0,0.5,1].forEach(function(v){
+    el('line', {x1:X0-6, y1:yOf(v), x2:X1, y2:yOf(v), stroke:'var(--sound)', 'stroke-width':1, opacity:v===0?0:.3});
+    el('text', {x:X0-12, y:yOf(v)+5, 'text-anchor':'end', class:'ital'}, it(v));
+  });
+  [0,30,45,60,90].forEach(function(d){
+    el('line', {x1:xOf(d), y1:Y0, x2:xOf(d), y2:Y0+7, stroke:'var(--deep)', 'stroke-width':1.4});
+    el('text', {x:xOf(d), y:Y0+26, 'text-anchor':'middle', class:'ital'}, d+'°');
+  });
+  function path(fn, color, dash){
+    var d = '';
+    for (var a=0; a<=90; a++){
+      var v = fn(a*Math.PI/180);
+      d += (a===0?'M':'L') + xOf(a).toFixed(1) + ',' + yOf(v).toFixed(1);
+    }
+    el('path', {d:d, fill:'none', stroke:color, 'stroke-width':3.6, 'stroke-dasharray':dash||'none'});
+  }
+  path(Math.sin, 'var(--magenta)');
+  path(Math.cos, 'var(--sound)', '9 6');
+  el('circle', {cx:xOf(45), cy:yOf(Math.SQRT1_2), r:7, fill:'var(--paper)', stroke:'var(--deep)', 'stroke-width':2.4});
+  el('text', {x:xOf(45)+14, y:yOf(Math.SQRT1_2)-14, class:'lbl', 'font-size':13}, '45° · 0,71');
+  el('text', {x:xOf(78), y:yOf(0.93), class:'lbl', fill:'var(--magenta)'}, 'seno · avanti');
+  el('text', {x:xOf(78), y:yOf(0.13), class:'lbl', fill:'var(--sound)'}, 'coseno · di lato');
+})();
+</script>
+</body>
+</html>

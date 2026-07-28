@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Struttura dello Scafo — Patente Nautica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="argomenti.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nautica</a>
+  <a href="../index.html" class="nav-back">← Portale</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Argomento 09 · Scafo</div>
+  <h1>Struttura<br><b>dello Scafo</b></h1>
+  <p class="sub">Anatomia di una imbarcazione: parti strutturali, zone di scafo, movimenti e classificazione per lunghezza.</p>
+
+  <!-- 1. VISTA LATERALE -->
+  <section>
+    <div class="tag">Anatomia esterna</div>
+    <h2>Vista Laterale — Parti Principali</h2>
+
+    <svg viewBox="0 0 700 280" role="img" aria-label="Vista laterale dello scafo con parti principali">
+      <!-- linea d'acqua -->
+      <line x1="30" y1="165" x2="670" y2="165" stroke="var(--sound)" stroke-width="1.2" stroke-dasharray="6 4"/>
+      <text class="lbl sm" x="640" y="160">l.d.a.</text>
+
+      <!-- scafo -->
+      <path d="M80,80 Q120,72 200,68 Q350,60 480,68 Q580,74 630,90 Q650,105 645,130 Q640,155 625,165 Q480,180 300,182 Q150,180 80,165 Q62,155 60,140 Q58,115 80,80 Z"
+            fill="var(--land)" stroke="var(--deep)" stroke-width="2.2"/>
+
+      <!-- opera viva (sotto l'acqua) - sfondo più scuro -->
+      <path d="M80,165 Q150,180 300,182 Q480,180 625,165 Q640,155 645,130 Q640,170 625,178 Q480,196 300,198 Q150,196 80,178 Q62,170 60,155 Q62,165 80,165 Z"
+            fill="rgba(14,42,56,.12)" stroke="none"/>
+
+      <!-- battagliola (ringhiera) -->
+      <line x1="150" y1="68" x2="550" y2="68" stroke="var(--deep)" stroke-width="1.5" stroke-dasharray="none"/>
+      <line x1="150" y1="62" x2="150" y2="75" stroke="var(--deep)" stroke-width="1.5"/>
+      <line x1="250" y1="62" x2="250" y2="69" stroke="var(--deep)" stroke-width="1.5"/>
+      <line x1="350" y1="60" x2="350" y2="68" stroke="var(--deep)" stroke-width="1.5"/>
+      <line x1="450" y1="62" x2="450" y2="69" stroke="var(--deep)" stroke-width="1.5"/>
+      <line x1="550" y1="62" x2="550" y2="75" stroke="var(--deep)" stroke-width="1.5"/>
+
+      <!-- chiglia (keel) -->
+      <path d="M130,180 Q300,196 500,180 L480,210 Q300,220 140,210 Z"
+            fill="var(--deep)" stroke="var(--deep)" stroke-width="1.5"/>
+
+      <!-- etichette -->
+      <!-- PRUA -->
+      <line x1="80" y1="115" x2="35" y2="95" stroke="var(--magenta)" stroke-width="1"/>
+      <text class="lbl" x="5" y="93" fill="var(--magenta)">PRUA</text>
+
+      <!-- POPPA -->
+      <line x1="640" y1="115" x2="668" y2="98" stroke="var(--magenta)" stroke-width="1"/>
+      <text class="lbl" x="695" y="96" text-anchor="end" fill="var(--magenta)">POPPA</text>
+
+      <!-- OPERA MORTA / MURATA -->
+      <line x1="350" y1="90" x2="350" y2="48" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="310" y="44">OPERA MORTA</text>
+      <text class="ital" x="310" y="58" font-size="13">(murata)</text>
+
+      <!-- OPERA VIVA / CARENA -->
+      <line x1="350" y1="170" x2="350" y2="200" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="313" y="212">OPERA VIVA</text>
+      <text class="ital" x="320" y="225" font-size="13">(carena)</text>
+
+      <!-- BATTAGLIOLA -->
+      <line x1="350" y1="65" x2="350" y2="30" stroke="var(--deep)" stroke-width="1" stroke-dasharray="3 2"/>
+      <text class="lbl sm" x="280" y="26">BATTAGLIOLA</text>
+
+      <!-- CHIGLIA -->
+      <line x1="300" y1="208" x2="270" y2="240" stroke="var(--deep)" stroke-width="1"/>
+      <text class="lbl" x="240" y="254">CHIGLIA</text>
+
+      <!-- MASCONI (quarters — zona laterale poppa) -->
+      <line x1="600" y1="110" x2="655" y2="122" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="693" y="126" text-anchor="end">MASCONI</text>
+
+      <!-- GIARDINETTI -->
+      <line x1="618" y1="148" x2="655" y2="146" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="693" y="150" text-anchor="end">GIARDINETTI</text>
+
+      <!-- linea d'acqua label -->
+      <text class="ital" x="34" y="178" font-size="13">linea d'acqua</text>
+
+      <!-- specchio di poppa -->
+      <line x1="638" y1="140" x2="655" y2="170" stroke="var(--deep)" stroke-width="1" stroke-dasharray="3 2"/>
+      <text class="lbl sm" x="693" y="174" text-anchor="end">SPECCHIO</text>
+      <text class="lbl sm" x="693" y="186" text-anchor="end">DI POPPA</text>
+    </svg>
+    <p class="cap">La <strong>linea d'acqua</strong> divide l'opera viva (immersa) dall'opera morta (fuori dall'acqua). La battagliola è la ringhiera perimetrale di sicurezza.</p>
+
+    <dl>
+      <div class="key"><dt>Prua</dt><dd>parte anteriore dell'imbarcazione; la prua tagliaflutti è la zona più avanzata della prua</dd></div>
+      <div class="key"><dt>Poppa</dt><dd>parte posteriore; può essere a specchio (piatta) o tonda; ospita spesso il motore</dd></div>
+      <div class="key"><dt>Opera viva (carena)</dt><dd>parte dello scafo immersa: deve essere protetta con antivegetativa</dd></div>
+      <div class="key"><dt>Opera morta (murata)</dt><dd>parte dello scafo fuori dall'acqua; include il bordo libero (francobordo)</dd></div>
+      <div class="key"><dt>Battagliola</dt><dd>ringhiera perimetrale di sicurezza che corre lungo il ponte</dd></div>
+      <div class="key"><dt>Chiglia</dt><dd>spina dorsale della barca; corre dal dritto di prua al dritto di poppa; nelle barche a vela porta la zavorra</dd></div>
+      <div class="key"><dt>Masconi</dt><dd>zone laterali della poppa (tra la mezzanave e i giardinetti)</dd></div>
+      <div class="key"><dt>Giardinetti</dt><dd>zone laterali estremi di poppa, vicino allo specchio</dd></div>
+      <div class="key"><dt>Specchio di poppa</dt><dd>parete piana della poppa; ospita generalmente il motore fuoribordo o il piede sterndrive</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2. SEZIONE TRASVERSALE -->
+  <section>
+    <div class="tag">Struttura interna</div>
+    <h2>Sezione Trasversale — Struttura Portante</h2>
+
+    <svg viewBox="0 0 560 300" role="img" aria-label="Sezione trasversale dello scafo con struttura portante">
+      <!-- scafo esterno -->
+      <path d="M60,60 Q65,80 75,120 Q100,190 280,220 Q460,190 485,120 Q495,80 500,60"
+            fill="var(--land)" stroke="var(--deep)" stroke-width="2.5"/>
+
+      <!-- chiglia centrale -->
+      <rect x="265" y="215" width="30" height="50" rx="2" fill="var(--deep)" stroke="var(--deep)" stroke-width="1"/>
+
+      <!-- paramezzale -->
+      <rect x="250" y="80" width="60" height="140" rx="2" fill="rgba(14,42,56,.22)" stroke="var(--deep)" stroke-width="1.5"/>
+      <text class="lbl sm" x="280" y="160" text-anchor="middle">PARA-</text>
+      <text class="lbl sm" x="280" y="173" text-anchor="middle">MEZZALE</text>
+
+      <!-- ordinate (costole) sx -->
+      <path d="M280,80 Q220,90 130,145 Q95,165 80,185"
+            fill="none" stroke="var(--sound)" stroke-width="2.5"/>
+      <!-- ordinate dx -->
+      <path d="M280,80 Q340,90 430,145 Q465,165 480,185"
+            fill="none" stroke="var(--sound)" stroke-width="2.5"/>
+
+      <!-- bagli (travetti orizzontali) -->
+      <line x1="120" y1="68" x2="440" y2="68" stroke="var(--deep)" stroke-width="3"/>
+      <line x1="105" y1="82" x2="455" y2="82" stroke="var(--deep)" stroke-width="2.5" opacity=".5"/>
+
+      <!-- serrette -->
+      <path d="M145,130 Q180,120 280,115 Q380,120 415,130"
+            fill="none" stroke="var(--magenta)" stroke-width="2" stroke-dasharray="6 3"/>
+      <path d="M105,165 Q180,150 280,148 Q380,150 455,165"
+            fill="none" stroke="var(--magenta)" stroke-width="2" stroke-dasharray="6 3"/>
+
+      <!-- sentina -->
+      <path d="M240,205 Q280,216 320,205 L320,220 Q280,232 240,220 Z"
+            fill="rgba(111,154,168,.35)" stroke="var(--sound)" stroke-width="1.5"/>
+
+      <!-- pagliolo -->
+      <line x1="150" y1="195" x2="410" y2="195" stroke="var(--deep)" stroke-width="2"/>
+      <!-- gambe pagliolo -->
+      <line x1="200" y1="195" x2="210" y2="215" stroke="var(--deep)" stroke-width="1.5"/>
+      <line x1="360" y1="195" x2="350" y2="215" stroke="var(--deep)" stroke-width="1.5"/>
+
+      <!-- etichette -->
+      <!-- BAGLI -->
+      <line x1="280" y1="68" x2="280" y2="30" stroke="var(--deep)" stroke-width="1"/>
+      <text class="lbl" x="256" y="24">BAGLI</text>
+
+      <!-- ORDINATE -->
+      <line x1="155" y1="130" x2="100" y2="110" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="8" y="108">ORDINATE</text>
+      <text class="ital" x="18" y="121" font-size="12">(costole)</text>
+
+      <!-- SERRETTE -->
+      <line x1="175" y1="122" x2="130" y2="96" stroke="var(--magenta)" stroke-width="1"/>
+      <text class="lbl sm" x="50" y="90" fill="var(--magenta)">SERRETTE</text>
+
+      <!-- SENTINA -->
+      <line x1="280" y1="218" x2="280" y2="258" stroke="var(--sound)" stroke-width="1"/>
+      <text class="lbl sm" x="256" y="270">SENTINA</text>
+
+      <!-- PAGLIOLO -->
+      <line x1="150" y1="195" x2="90" y2="195" stroke="var(--deep)" stroke-width="1"/>
+      <text class="lbl sm" x="10" y="198">PAGLIOLO</text>
+
+      <!-- CHIGLIA label -->
+      <line x1="280" y1="265" x2="280" y2="290" stroke="var(--deep)" stroke-width="1"/>
+      <text class="lbl" x="256" y="300">CHIGLIA</text>
+    </svg>
+    <p class="cap">Le <strong>ordinate</strong> sono le costole che danno forma allo scafo. I <strong>bagli</strong> reggono il ponte. Il <strong>paramezzale</strong> è la trave centrale. La <strong>sentina</strong> è il punto più basso dove si raccoglie l'acqua.</p>
+
+    <dl>
+      <div class="key"><dt>Ordinate (costole)</dt><dd>strutture trasversali che danno forma allo scafo; collegano chiglia e bordi</dd></div>
+      <div class="key"><dt>Bagli</dt><dd>travi orizzontali trasversali che reggono il ponte (coperta)</dd></div>
+      <div class="key"><dt>Serrette</dt><dd>longheroni longitudinali che corrono lungo i fianchi interni dello scafo, unendo le ordinate</dd></div>
+      <div class="key"><dt>Paramezzale</dt><dd>trave longitudinale centrale interna; rinforza la chiglia; ideale punto di attacco per attrezzature pesanti</dd></div>
+      <div class="key"><dt>Sentina</dt><dd>zona più bassa dell'interno dello scafo dove si raccoglie l'acqua da espellere con la pompa di sentina</dd></div>
+      <div class="key"><dt>Pagliolo</dt><dd>pavimento interno dell'imbarcazione, posato sopra le ordinate; sollevabile per accedere alla sentina</dd></div>
+      <div class="key"><dt>Coperta</dt><dd>il "tetto" dello scafo; reggono dai bagli; può essere in vetroresina, teak, ecc.</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3. MOVIMENTI -->
+  <section>
+    <div class="tag">Dinamica</div>
+    <h2>Movimenti dello Scafo</h2>
+
+    <svg viewBox="0 0 660 200" role="img" aria-label="I tre movimenti dello scafo: rollio, beccheggio, sussulto">
+      <!-- ─── ROLLIO ─── -->
+      <rect x="10" y="10" width="200" height="180" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="110" y="35" text-anchor="middle">ROLLIO</text>
+      <!-- barca schematizzata (sezione) in posizione neutra -->
+      <path d="M70,110 Q110,130 150,110 L145,100 Q110,115 75,100 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+      <!-- frecce arco -->
+      <path d="M75,95 Q110,70 145,95" fill="none" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M145,105 Q110,128 75,105" fill="none" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- asse longitudinale -->
+      <line x1="35" y1="105" x2="185" y2="105" stroke="var(--deep)" stroke-width="1" stroke-dasharray="4 3"/>
+      <text class="ital" x="110" y="170" text-anchor="middle" font-size="13">rotazione asse longitudinale</text>
+
+      <!-- ─── BECCHEGGIO ─── -->
+      <rect x="230" y="10" width="200" height="180" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="330" y="35" text-anchor="middle">BECCHEGGIO</text>
+      <!-- barca di profilo -->
+      <path d="M260,100 Q330,115 400,100 L390,90 Q330,102 270,90 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+      <path d="M265,87 Q295,65 265,87" fill="none" stroke="var(--magenta)" stroke-width="2"/>
+      <!-- freccia verso il basso alla prua -->
+      <path d="M268,100 L260,118" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- freccia verso su alla poppa -->
+      <path d="M390,100 L398,82" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- asse trasversale -->
+      <line x1="330" y1="60" x2="330" y2="145" stroke="var(--deep)" stroke-width="1" stroke-dasharray="4 3"/>
+      <text class="ital" x="330" y="170" text-anchor="middle" font-size="13">rotazione asse trasversale</text>
+
+      <!-- ─── SUSSULTO ─── -->
+      <rect x="450" y="10" width="200" height="180" rx="2" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+      <text class="lbl" x="550" y="35" text-anchor="middle">SUSSULTO</text>
+      <!-- barca di profilo -->
+      <path d="M480,100 Q550,115 620,100 L610,90 Q550,102 490,90 Z" fill="var(--land)" stroke="var(--deep)" stroke-width="1.8"/>
+      <!-- frecce verticali -->
+      <line x1="550" y1="78" x2="550" y2="58" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <line x1="550" y1="122" x2="550" y2="142" stroke="var(--magenta)" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- asse verticale -->
+      <line x1="550" y1="50" x2="550" y2="150" stroke="var(--deep)" stroke-width="1" stroke-dasharray="4 3"/>
+      <text class="ital" x="550" y="170" text-anchor="middle" font-size="13">traslazione asse verticale</text>
+
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L0,8 L8,4 Z" fill="var(--magenta)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <dl>
+      <div class="key"><dt>Rollio</dt><dd>oscillazione laterale attorno all'asse longitudinale (prua-poppa); causato da onde di traverso</dd></div>
+      <div class="key"><dt>Beccheggio</dt><dd>oscillazione longitudinale attorno all'asse trasversale (murata-murata); prua che sale e scende con le onde di prua</dd></div>
+      <div class="key"><dt>Sussulto</dt><dd>movimento verticale traslatorio (su-giù) senza rotazione; tipico di onde corte e ripide</dd></div>
+    </dl>
+  </section>
+
+  <!-- 4. TERMINI RELATIVI E CLASSIFICAZIONE -->
+  <section>
+    <div class="tag">Orientamento e classificazione</div>
+    <h2>Termini Relativi e Classificazione per Lunghezza</h2>
+    <div class="duo">
+      <div>
+        <p><strong>Termini di posizione relativa:</strong></p>
+        <dl>
+          <div class="key"><dt>Prora via</dt><dd>verso la prua, nella direzione in cui va la barca</dd></div>
+          <div class="key"><dt>Poppa via</dt><dd>verso la poppa, nel senso opposto alla marcia</dd></div>
+          <div class="key"><dt>Dritta (tribordo)</dt><dd>lato destro della barca guardando la prua</dd></div>
+          <div class="key"><dt>Sinistra (babordo)</dt><dd>lato sinistro della barca guardando la prua</dd></div>
+          <div class="key"><dt>Sopravvento</dt><dd>lato da cui proviene il vento</dd></div>
+          <div class="key"><dt>Sottovento</dt><dd>lato opposto al vento; più riparato</dd></div>
+        </dl>
+      </div>
+      <div>
+        <p><strong>Classificazione per lunghezza fuori tutto (L.f.t.):</strong></p>
+        <dl>
+          <div class="key"><dt>Natanti</dt><dd>lunghezza fino a 10 m; non richiedono patente per motori fino a 40,8 kW</dd></div>
+          <div class="key"><dt>Imbarcazioni</dt><dd>da 10 m a 24 m; richiedono sempre la patente nautica</dd></div>
+          <div class="key"><dt>Navi da diporto</dt><dd>oltre 24 m; soggette a normativa più stringente</dd></div>
+        </dl>
+        <p class="note">La <strong>lunghezza fuori tutto</strong> si misura dal punto più avanzato della prua al punto più arretrato della poppa, incluse le strutture fisse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ATTREZZATURA SUL PONTE -->
+  <section>
+    <div class="tag">Attrezzatura e accessi</div>
+    <h2>Accessori e Aperture dello Scafo</h2>
+    <dl>
+      <div class="key"><dt>Bitta</dt><dd>colonnina metallica sul ponte per ormeggiare le cime; di prua (bitta di prua) o di poppa</dd></div>
+      <div class="key"><dt>Galloccia</dt><dd>accessorio a forma di T su cui si avvolge la cima; più leggera della bitta</dd></div>
+      <div class="key"><dt>Pozzetto</dt><dd>zona incassata a poppa dove si trovano la ruota del timone o la barra e i winch; area di pilotaggio</dd></div>
+      <div class="key"><dt>Pulpito</dt><dd>struttura metallica rinforzata a prua (e a poppa) come supporto per la battagliola e sicurezza equipaggio</dd></div>
+      <div class="key"><dt>Musone</dt><dd>rullo a prua per guidare la catena dell'ancora; detto anche "cubia di prua"</dd></div>
+      <div class="key"><dt>Occhio di cubia</dt><dd>foro rinforzato nello scafo attraverso cui passa la catena o la cima di ormeggio</dd></div>
+      <div class="key"><dt>Boccaporto</dt><dd>apertura nel ponte (con portello) per accedere agli spazi interni o per aerare</dd></div>
+      <div class="key"><dt>Gavoni</dt><dd>vani di stivaggio chiusi, spesso a prua (gavone di prua) e a poppa; per cime, ancora, fenders</dd></div>
+      <div class="key"><dt>Ombrinali</dt><dd>fori o canali nel ponte che scaricano l'acqua di pioggia o di coperta in mare</dd></div>
+      <div class="key"><dt>Passascafo</dt><dd>raccordo stagnante che attraversa la carena per collegare impianti idraulici con l'esterno</dd></div>
+      <div class="key"><dt>Pescaggio</dt><dd>profondità massima dell'imbarcazione sotto la linea d'acqua; fondamentale per la navigazione in acque basse</dd></div>
+      <div class="key"><dt>Flap / Trim</dt><dd>alette di poppa regolabili che modificano il trim (assetto) dell'imbarcazione aumentando o riducendo il beccheggio</dd></div>
+    </dl>
+  </section>
+
+  <a class="quiz-cta" href="../quiz/quiz.html?arg=scafo">
+    <span>Mettiti alla prova — Quiz Struttura dello Scafo</span>
+    <span>Inizia &rsaquo;</span>
+  </a>
+</div>
+
+<footer>
+  <a href="../index.html">← Portale Patente Nautica</a>
+</footer>
+</body>
+</html>

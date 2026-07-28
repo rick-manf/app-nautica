@@ -132,10 +132,10 @@
 <div class="hero">
   <div class="eyebrow">Portale didattico · Patente nautica a vela e motore</div>
   <h1>Studia.<br><b>Esercitati. Parti.</b></h1>
-  <p class="hero-sub">Otto argomenti fondamentali — schede visive, diagrammi interattivi e quiz di allenamento per l'esame.</p>
+  <p class="hero-sub">Nove argomenti fondamentali — schede visive, diagrammi interattivi e quiz di allenamento per l'esame.</p>
   <div class="stats">
-    <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Argomenti</span></div>
-    <div class="stat-item"><span class="stat-num">96</span><span class="stat-label">Domande quiz</span></div>
+    <div class="stat-item"><span class="stat-num">9</span><span class="stat-label">Argomenti</span></div>
+    <div class="stat-item"><span class="stat-num">108</span><span class="stat-label">Domande quiz</span></div>
     <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Schede interattive</span></div>
     <div class="stat-item"><span class="stat-num" id="pct">—</span><span class="stat-label">Media quiz</span></div>
   </div>
@@ -344,6 +344,37 @@
       </div>
     </div>
 
+    <!-- 09 Scafo -->
+    <div class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none">
+          <!-- scafo visto di fronte (sezione trasversale) -->
+          <path d="M6 14 Q10 18 16 30 Q24 40 32 30 Q38 18 42 14" fill="none" stroke="var(--deep)" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- chiglia -->
+          <rect x="21" y="38" width="6" height="8" rx="1" fill="var(--deep)"/>
+          <!-- bagli (travi orizzontali) -->
+          <line x1="8" y1="14" x2="40" y2="14" stroke="var(--deep)" stroke-width="2.5"/>
+          <!-- ordinate sx -->
+          <path d="M24 14 Q18 20 12 30" stroke="var(--sound)" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- ordinate dx -->
+          <path d="M24 14 Q30 20 36 30" stroke="var(--sound)" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- paramezzale -->
+          <line x1="24" y1="14" x2="24" y2="40" stroke="var(--magenta)" stroke-width="1.8" stroke-dasharray="3 2"/>
+        </svg>
+        <div class="card-meta">
+          <div class="card-num">09 · Scafo</div>
+          <p class="card-title">Struttura<br>dello Scafo</p>
+          <div class="card-bar"><div class="card-bar-fill" id="bar-scafo"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Anatomia dell'imbarcazione: prua, poppa, opera viva/morta, ordinate, bagli, serrette, movimenti e classificazione per lunghezza.</p>
+      <div class="card-footer">
+        <a href="argomenti/09-scafo.html" class="btn btn-primary">Studia</a>
+        <a href="quiz/quiz.html?arg=scafo" class="btn btn-outline">Quiz</a>
+        <span class="badge badge-wip" id="badge-scafo">non fatto</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -355,7 +386,7 @@
 <script>
 (function aggiornaProgress() {
   var scores = JSON.parse(localStorage.getItem('quiz-scores') || '{}');
-  var args = ['normativa','meteorologia','navigazione','segnalamento','sicurezza','manovre','motore','vela'];
+  var args = ['normativa','meteorologia','navigazione','segnalamento','sicurezza','manovre','motore','vela','scafo'];
   var totPct = 0, fatti = 0;
 
   args.forEach(function(arg) {
